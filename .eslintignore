@@ -1,0 +1,14 @@
+*.js
+*.cjs
+*.mjs
+*.d.ts
+*.d.mts
+vite.config.ts
+/node_modules
+/build
+/coverage
+/dist
+/.vscode
+/.github
+/public
+/tests/cypres/*
