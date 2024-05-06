@@ -1,63 +1,17 @@
-import { About, FindMe } from '@/components'
+import { About, FindMe, FindMeCopy, Resume, Portfolio, Skills } from '@/components'
 import React from 'react'
 
 export default function Hero() {
   return (
     <section>
       <div className="p-4">
-        <div className="grid grid-cols-1 gap-4 list-none lg:grid-cols-3 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-4">
+        <div className="grid grid-cols-1 gap-4 list-none lg:grid-cols-3 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-4 mt-20">
           <About />
-          <FindMe />
-          <a
-            href="https://monomod.studio/"
-            className="ring-1 lg:row-span-2 flex flex-col justify-between group hover:ring-primary/10 dark:hover:ring-white/20 duration-300 h-full dark:ring-white/10 ring-primary/5 lg:row-start-2 md:grid-cols-2 md:grid lg:gap-0 md:items-center md:gap-12 lg:grid-cols-none lg:col-start-2 lg:col-span-2 rounded-3xl p-8 bg-white dark:bg-secondary shadow-xl dark:shadow-thick">
-            <div>
-              <p className="ext-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">Monomod</p>
-              <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
-                Design &amp; development subscriptions for startups.
-                <br /> <br />
-                Monomod streamlines the design process with a fixed monthly rate and limitless design requests. Say
-                goodbye to phone calls and extensive contracts; reach out to Monomod directly at any time. Embrace
-                flexibility, pause or terminate your subscription whenever you need.
-              </p>
-            </div>
-            <div className="mt-8">
-              <img
-                src="/images/monomod.png"
-                className="rounded-2xl group-hover:ring-white/20 duration-300 invert dark:invert-0 aspect-[4/4] bg-primary/5 dark:bg-primary ring-1 ring-white/10  object-cover"
-                alt=""
-              />
-            </div>
-          </a>
-          <div className="ring-1 dark:ring-white/10  ring-primary/5 flex flex-col justify-between items-center rounded-3xl shadow-xl dark:shadow-thick p-8  bg-white dark:bg-secondary overflow-hidden text-center lg:text-left">
-            <div>
-              <p className="text-xl text-primary dark:text-white lg:text-7xl tracking-tight">Grab my résumé!</p>
-              <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">
-                Unlock the doors to explore the rich tapestry of my professional journey and accomplishments.
-              </p>
-            </div>
-            <div className="w-full mt-8 md:max-w-xs lg:max-w-none">
-              <button
-                type="button"
-                className="text-sm py-2 w-full px-4 h-12 font-semibold focus:ring-2 rounded-lg bg-primary dark:bg-white dark:text-primary dark:hover:text-white hover:text-primary dark:hover:bg-white/5 hover:bg-primary/10 text-white flex duration-200 focus:ring-offset-2 focus:ring-inline-flex items-center justify-between">
-                Download my CV
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-download w-4 h-4"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
-                  <path d="M7 11l5 5l5 -5" />
-                  <path d="M12 4l0 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
+          <FindMe>
+            <FindMeCopy />
+          </FindMe>
+          <Portfolio />
+          <Resume />
           <a
             href="https://www.figma.com/@mikeandreuzza"
             className="ring-1 lg:row-start-3 items-center h-full flex p-8 flex-col justify-center hover:ring-primary/5 dark:hover:ring-white/20 dark:ring-white/10 ring-primary/5 relative rounded-3xl overflow-hidden bg-white dark:bg-secondary shadow-xl dark:shadow-thick">
@@ -158,33 +112,7 @@ export default function Hero() {
               </p>
             </div>
           </a>
-          <div className="ring-1 dark:ring-white/10 ring-primary/5 flex flex-col p-8 h-full justify-center items-center rounded-3xl overflow-hidden relative lg:col-span-2 lg:row-start-4 bg-white dark:bg-secondary shadow-xl dark:shadow-thick">
-            <div className="relative p-8 text-center w-full">
-              <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">
-                Subscribe <span className="lg:block">to my newsletter</span>
-              </p>
-              <form className="mt-6 sm:flex w-full lg:max-w-sm mx-auto">
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  name="email-address"
-                  id="email-address"
-                  autoComplete="email"
-                  className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Enter your email"
-                />
-                <div className="mt-4 sm:ml-2 sm:mt-0 sm:flex-shrink-0">
-                  <button
-                    type="submit"
-                    className="text-sm py-2 w-full px-4 h-12 font-semibold focus:ring-2 rounded-lg bg-primary dark:bg-white dark:text-primary dark:hover:text-white hover:text-primary dark:hover:bg-white/5 hover:bg-primary/10 text-white flex duration-200 focus:ring-offset-2 focus:ring-inline-flex items-center justify-between">
-                    Subscribe
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
+          <Skills />
           <div className="ring-1 dark:ring-white/10 ring-primary/5 shadow-xl dark:shadow-thick rounded-3xl p-8 lg:row-start-4 h-full flex flex-col justify-between bg-white dark:bg-secondary">
             <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-5xl">Testimonials</p>
             <div className="md:grid md:grid-cols-2 gap-6 lg:grid-cols-1">

@@ -1,3 +1,6 @@
 export * from './About'
 export * from './FindMe'
 export * from './Hero'
+export * from './Resume'
+export * from './Portfolio'
+export * from './Skills'

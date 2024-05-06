@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '@/assets/logo.webp'
 
 export default function Navbar() {
@@ -8,8 +8,17 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden')
+    } else {
+      document.body.classList.remove('overflow-hidden')
+    }
+  }, [isOpen])
+
   return (
-    <nav className="flex justify-between bg-secondary text-white w-screen">
+    <nav className="flex justify-between bg-secondary text-white w-screen fixed z-50">
       <div className="px-5 xl:px-12 py-6 flex w-full items-center">
         <a className="text-3xl font-bold font-heading" href="#">
           <img className="h-9 rounded-full" src={Logo.src} alt="logo" />
@@ -70,7 +79,7 @@ export default function Navbar() {
       </button>
       {/* Responsive Menu */}
       <div
-        className={`md:hidden ${isOpen ? 'block' : 'hidden'} absolute left-0 w-full bg-secondary text-white top-16 z-50 bottom-0`}>
+        className={`md:hidden ${isOpen ? 'block' : 'hidden'} fixed left-0 w-full bg-secondary text-white top-16 z-50 bottom-0`}>
         <ul className="px-4 py-2 text-center font-semibold font-heading space-y-4">
           <li>
             <a className="hover:text-gray-200" href="#">
