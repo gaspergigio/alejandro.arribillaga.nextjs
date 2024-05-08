@@ -6,6 +6,11 @@ function FindMe({ children }: { children: React.ReactNode }) {
     <div className="ring-1 dark:ring-white/10 ring-primary/5 rounded-3xl justify-between shadow-xl dark:shadow-thick items-center flex flex-col p-8 h-full bg-white  dark:bg-secondary">
       <div className="w-full">
         <p className="text-xl font-normal tracking-tight text-primary dark:text-white lg:text-8xl">Find me on</p>
+        <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">
+          Feel free to reach out to me if you have any questions, comments, or inquiries. I'm here to assist you with
+          anything you need and address any concerns you may have. Your feedback is valuable to me, and I look forward
+          to hearing from you
+        </p>
       </div>
       <div className="grid mt-4 grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-y-4 gap-4 justify-center w-full">
         <div className="col-span-4 gap-x-3 flex">
