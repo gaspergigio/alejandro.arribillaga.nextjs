@@ -1,4 +1,4 @@
-import { About, FindMe, FindMeCopy, Resume, Portfolio, Skills, Testimonials, Experience } from '@/components'
+import { About, FindMe, FindMeCopy, Resume, Portfolio, Skills, Testimonials, Slogan } from '@/components'
 import React from 'react'
 
 export default function Hero() {
@@ -113,7 +113,7 @@ export default function Hero() {
             </div>
           </a>
           <Skills />
-          <Experience />
+          <Slogan />
           <Testimonials />
         </div>
       </div>
