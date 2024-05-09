@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function Testimonials() {
   return (
-    <div className="lg:col-span-2 xl:col-span-1 h-full flex flex-col justify-between lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary shadow-xl dark:shadow-thick rounded-3xl p-8">
+    <div className="lg:col-span-2 xl:col-span-1 h-full flex flex-col justify-evenly lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary shadow-xl dark:shadow-thick rounded-3xl p-8">
       <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-5xl">Testimonials</p>
       <div className="md:grid md:grid-cols-2 gap-6 lg:grid-cols-1">
-        <div className="mt-4">
+        <div>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
             "Alejandro is an excellent professional, both technically and in terms of soft skills. I had the opportunity
             to work with him for a couple of years where I could realize that in addition to having great technical
