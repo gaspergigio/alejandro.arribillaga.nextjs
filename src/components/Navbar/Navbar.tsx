@@ -28,28 +28,28 @@ export default function Navbar() {
           <li>
             <a
               className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
-              href="#">
+              href="/">
               Home
             </a>
           </li>
           <li>
             <a
               className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
-              href="#">
+              href="/portfolio">
               Portfolio
             </a>
           </li>
           <li>
             <a
               className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
-              href="#">
+              href="/blog">
               Blog
             </a>
           </li>
           <li>
             <a
               className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
-              href="#">
+              href="/apps">
               Apps
             </a>
           </li>
@@ -90,22 +90,22 @@ export default function Navbar() {
         className={`md:hidden ${isOpen ? 'block' : 'hidden'} fixed left-0 w-full bg-secondary text-white top-16 z-50 bottom-0`}>
         <ul className="px-4 py-2 text-center font-semibold font-heading space-y-4">
           <li>
-            <a className="hover:text-gray-200" href="#">
+            <a className="hover:text-gray-200" href="/">
               Home
             </a>
           </li>
           <li>
-            <a className="hover:text-gray-200" href="#">
+            <a className="hover:text-gray-200" href="/portfolio">
               Portfolio
             </a>
           </li>
           <li>
-            <a className="hover:text-gray-200" href="#">
+            <a className="hover:text-gray-200" href="/blog">
               Blog
             </a>
           </li>
           <li>
-            <a className="hover:text-gray-200" href="#">
+            <a className="hover:text-gray-200" href="/apps">
               Apps
             </a>
           </li>

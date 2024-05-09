@@ -12,7 +12,7 @@ export default function Footer() {
             <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 xl:justify-end">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   title=""
                   className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80">
                   {' '}
@@ -22,7 +22,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#"
+                  href="/portfolio"
                   title=""
                   className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80">
                   {' '}
@@ -32,7 +32,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#"
+                  href="/blog"
                   title=""
                   className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80">
                   {' '}
@@ -42,7 +42,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#"
+                  href="/apps"
                   title=""
                   className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80">
                   {' '}
