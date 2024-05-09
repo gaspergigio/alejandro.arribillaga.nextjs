@@ -1,10 +1,33 @@
-import { Hero, Navbar } from '@/components'
+import {
+  Home,
+  About,
+  FindMe,
+  FindMeCopy,
+  Resume,
+  Education,
+  Portfolio,
+  Skills,
+  Testimonials,
+  Slogan,
+  LastestPosts,
+} from '@/components'
 
-export default function Home() {
+export default function Page() {
   return (
     <main>
-      <Navbar />
-      <Hero />
+      <Home>
+        <About />
+        <FindMe>
+          <FindMeCopy />
+        </FindMe>
+        <Portfolio />
+        <Resume />
+        <Education />
+        <LastestPosts />
+        <Skills />
+        <Slogan />
+        <Testimonials />
+      </Home>
     </main>
   )
 }

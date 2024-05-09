@@ -26,22 +26,30 @@ export default function Navbar() {
         {/* Nav Links */}
         <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
           <li>
-            <a className="hover:text-gray-200" href="#">
+            <a
+              className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
+              href="#">
               Home
             </a>
           </li>
           <li>
-            <a className="hover:text-gray-200" href="#">
+            <a
+              className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
+              href="#">
               Portfolio
             </a>
           </li>
           <li>
-            <a className="hover:text-gray-200" href="#">
+            <a
+              className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
+              href="#">
               Blog
             </a>
           </li>
           <li>
-            <a className="hover:text-gray-200" href="#">
+            <a
+              className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
+              href="#">
               Apps
             </a>
           </li>

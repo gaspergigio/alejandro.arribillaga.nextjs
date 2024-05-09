@@ -11,7 +11,7 @@ export default function Portfolio() {
         <p className="ext-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">Noteworthy Works</p>
         <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
           Explore some of my most notable works. Read more in my
-          <a className="hover:text-gray-200 text-white font-semibold" href="#">
+          <a className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="#">
             {` Portfolio`}
           </a>
           <br /> <br />

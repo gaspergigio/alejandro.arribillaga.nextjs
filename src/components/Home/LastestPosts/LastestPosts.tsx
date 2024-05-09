@@ -9,7 +9,7 @@ export default function LastestPosts() {
           Explore my latest articles on programming, web development, and technology. Find quality technical articles,
           tips, tutorials, and reflections here to help you keep your mind sharp and your skills up to date in the world
           of software development. Read more in my
-          <a className="hover:text-gray-200 text-white font-semibold" href="#">
+          <a className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="#">
             {` Blog`}
           </a>
         </p>
