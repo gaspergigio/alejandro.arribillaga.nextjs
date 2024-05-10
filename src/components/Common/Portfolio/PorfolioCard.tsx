@@ -1,24 +1,27 @@
 import Image from 'next/image'
 import { PortfolioCardProps } from './Portfolio.types'
 import { Tooltip } from '@nextui-org/tooltip'
+import styles from './Portfolio.module.css'
 
 export default function PorfolioCard({ isFeatured, title, src, category, children, skills }: PortfolioCardProps) {
   const cardWidth = isFeatured ? 'xl:w-1/2 md:w-1/1' : 'xl:w-1/4 lg:w-1/3 md:w-1/2'
   return (
     <div className={`${cardWidth} p-4`}>
       <div className="bg-tertiary p-6 rounded-lg">
-        <Image
-          className="h-40 rounded w-full object-cover object-center mb-6"
-          src={src}
-          alt="content"
-          width={1440}
-          height={906}
-        />
-        <h3 className="tracking-widest text-indigo-400 text-xs font-medium title-font">{category}</h3>
+        <div className={styles.imgZoom}>
+          <Image
+            className={`h-40 rounded w-full object-cover opacity-80 object-center mb-6 ${styles.img}`}
+            src={src}
+            alt="content"
+            width={300}
+            height={160}
+          />
+        </div>
+        <h3 className="mt-4 tracking-widest text-indigo-400 text-xs font-medium title-font">{category}</h3>
         <h2 className="text-lg text-white font-semibold title-font mb-4">{title}</h2>
         {children}
         {skills && !isFeatured && (
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap mt-4">
             {skills.map(({ name, icon: Icon }, index) => (
               <Tooltip key={index} content={name} color="primary">
                 <div
