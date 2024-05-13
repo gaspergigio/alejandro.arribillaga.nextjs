@@ -1,10 +1,12 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Logo from '@/assets/logo.webp'
+import NavbarItem from './NavbarItem'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-
+  const pathname = usePathname()
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
@@ -25,34 +27,18 @@ export default function Navbar() {
         </a>
         {/* Nav Links */}
         <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-          <li>
-            <a
-              className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
-              href="/">
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
-              href="/portfolio">
-              Portfolio
-            </a>
-          </li>
-          <li>
-            <a
-              className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
-              href="/blog">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a
-              className="text-sm text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"
-              href="/apps">
-              Apps
-            </a>
-          </li>
+          <NavbarItem to="/" pathName={pathname}>
+            Home
+          </NavbarItem>
+          <NavbarItem to="/portfolio" pathName={pathname}>
+            Portfolio
+          </NavbarItem>
+          <NavbarItem to="/blog" pathName={pathname}>
+            Blog
+          </NavbarItem>
+          <NavbarItem to="/apps" pathName={pathname}>
+            Apps
+          </NavbarItem>
         </ul>
         {/* Header Icons */}
         <div className="hidden md:flex items-center space-x-5 items-center">

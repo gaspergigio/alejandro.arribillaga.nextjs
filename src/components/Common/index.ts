@@ -1,3 +1,5 @@
 export * from './Footer'
 export * from './Navbar'
 export * from './Portfolio'
+export * from './PostCard'
+export * from './Posts'

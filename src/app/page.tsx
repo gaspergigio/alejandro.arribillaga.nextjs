@@ -9,8 +9,10 @@ import {
   Skills,
   Testimonials,
   Slogan,
-  LastestPosts,
+  Posts,
+  PostCard,
 } from '@/components'
+import Link from 'next/link'
 
 export default function Page() {
   return (
@@ -23,9 +25,9 @@ export default function Page() {
         <Portfolio title="Noteworthy Works" isFeatured>
           <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
             Explore some of my most notable works. Read more in my
-            <a className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="#">
+            <Link className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="/portfolio">
               {` Portfolio`}
-            </a>
+            </Link>
             <br /> <br />
             Explore my portfolio—a blend of 17 years of software development expertise. With 14 years spent mastering
             full-stack development and the last 3 dedicated solely to frontend, each project tells a story of innovation
@@ -35,7 +37,49 @@ export default function Page() {
         </Portfolio>
         <Resume />
         <Education />
-        <LastestPosts />
+        <Posts
+          title="My latest Posts"
+          description={
+            <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light">
+              Explore my latest articles on programming, web development, and technology. Find quality technical
+              articles, tips, tutorials, and reflections here to help you keep your mind sharp and your skills up to
+              date in the world of software development. Read more in my
+              <Link className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="/blog">
+                {` Blog`}
+              </Link>
+            </p>
+          }>
+          <PostCard
+            isFeatured
+            title="Meet AutoManage, the best AI management tools"
+            slug="/blog/meet-automanage-the-best-ai-management-tools"
+            imgSrc="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
+            publishDate={new Date()}>
+            <p className="text-base text-zinc-500 dark:text-zinc-400">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+          </PostCard>
+          <PostCard
+            isFeatured
+            title=" How to earn more money as a wellness coach"
+            slug="/blog/how-to-earn-more-money-as-a-wellness-coach"
+            imgSrc="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
+            publishDate={new Date()}>
+            <p className="text-base text-zinc-500 dark:text-zinc-400">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+          </PostCard>
+          <PostCard
+            isFeatured
+            title=" How to earn more money as a wellness coach"
+            slug="/blog/how-to-earn-more-money-as-a-wellness-coach-2"
+            imgSrc="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
+            publishDate={new Date()}>
+            <p className="text-base text-zinc-500 dark:text-zinc-400">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+          </PostCard>
+        </Posts>
         <Skills />
         <Slogan />
         <Testimonials />
