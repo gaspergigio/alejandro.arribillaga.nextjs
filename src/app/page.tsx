@@ -39,6 +39,7 @@ export default function Page() {
         <Education />
         <Posts
           title="My latest Posts"
+          isFeatured
           description={
             <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light">
               Explore my latest articles on programming, web development, and technology. Find quality technical
@@ -50,7 +51,6 @@ export default function Page() {
             </p>
           }>
           <PostCard
-            isFeatured
             title="Meet AutoManage, the best AI management tools"
             slug="/blog/meet-automanage-the-best-ai-management-tools"
             imgSrc="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
@@ -60,7 +60,6 @@ export default function Page() {
             </p>
           </PostCard>
           <PostCard
-            isFeatured
             title=" How to earn more money as a wellness coach"
             slug="/blog/how-to-earn-more-money-as-a-wellness-coach"
             imgSrc="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
@@ -70,7 +69,6 @@ export default function Page() {
             </p>
           </PostCard>
           <PostCard
-            isFeatured
             title=" How to earn more money as a wellness coach"
             slug="/blog/how-to-earn-more-money-as-a-wellness-coach-2"
             imgSrc="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
