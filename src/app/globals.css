@@ -345,7 +345,7 @@ video {
   --tw-backdrop-invert: ;
   --tw-backdrop-opacity: ;
   --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia:           
+  --tw-backdrop-sepia:                     
 ;
 }
 
@@ -396,7 +396,7 @@ video {
   --tw-backdrop-invert: ;
   --tw-backdrop-opacity: ;
   --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia:           
+  --tw-backdrop-sepia:                     
 ;
 }
 
@@ -1166,5 +1166,13 @@ video {
 
   .xl\:grid-rows-4 {
     grid-template-rows: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Custom */
+
+.comming-soon {
+  @media (min-width: 768px) {
+    height: calc(100vh - 121px) !important;
   }
 }
