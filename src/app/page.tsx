@@ -52,7 +52,7 @@ export default function Page() {
           }>
           <PostCard
             title="Meet AutoManage, the best AI management tools"
-            slug="/blog/meet-automanage-the-best-ai-management-tools"
+            slug="meet-automanage-the-best-ai-management-tools"
             imgSrc="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
             publishDate={new Date()}>
             <p className="text-base text-zinc-500 dark:text-zinc-400">
@@ -61,7 +61,7 @@ export default function Page() {
           </PostCard>
           <PostCard
             title=" How to earn more money as a wellness coach"
-            slug="/blog/how-to-earn-more-money-as-a-wellness-coach"
+            slug="how-to-earn-more-money-as-a-wellness-coach"
             imgSrc="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
             publishDate={new Date()}>
             <p className="text-base text-zinc-500 dark:text-zinc-400">
@@ -70,7 +70,7 @@ export default function Page() {
           </PostCard>
           <PostCard
             title=" How to earn more money as a wellness coach"
-            slug="/blog/how-to-earn-more-money-as-a-wellness-coach-2"
+            slug="how-to-earn-more-money-as-a-wellness-coach-2"
             imgSrc="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
             publishDate={new Date()}>
             <p className="text-base text-zinc-500 dark:text-zinc-400">

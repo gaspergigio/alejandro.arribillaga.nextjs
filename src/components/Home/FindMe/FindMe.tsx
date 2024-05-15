@@ -1,5 +1,5 @@
 import FindMeCopy from './FindMeCopy'
-import { IconBrandLinkedin, IconBrandGithub, IconMail } from '@tabler/icons-react'
+import { IconBrandLinkedin, IconBrandGithub, IconMail, IconBrandMedium } from '@tabler/icons-react'
 
 function FindMe({ children }: { children: React.ReactNode }) {
   return (
@@ -35,6 +35,12 @@ function FindMe({ children }: { children: React.ReactNode }) {
           {children}
         </div>
         <div className="col-span-4 flex gap-4 w-full justify-end">
+          <a
+            href="https://medium.com/@alejandroarribillaga"
+            target="_blank"
+            className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-12 w-12">
+            <IconBrandMedium color="white" strokeWidth={0.8} />
+          </a>
           <a
             href="https://github.com/gaspergigio"
             target="_blank"
