@@ -42,8 +42,7 @@ export default function Navbar() {
         </ul>
         {/* Header Icons */}
         <div className="hidden md:flex items-center space-x-5 items-center">
-          {/* Sign In / Register      */}
-          <a className="flex items-center hover:text-gray-200" href="#">
+          <a className="flex items-center hover:text-gray-200" href="/login">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 hover:text-gray-200"
@@ -93,6 +92,11 @@ export default function Navbar() {
           <li>
             <a className="hover:text-gray-200" href="/apps">
               Apps
+            </a>
+          </li>
+          <li>
+            <a className="hover:text-gray-200" href="/login">
+              Login
             </a>
           </li>
         </ul>

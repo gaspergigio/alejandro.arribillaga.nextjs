@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <main>
       <section>
-        <div className="px-4 xl:px-20 py-4 comming-soon">
+        <div className="px-4 xl:px-20 py-4 extend-height">
           <div className="grid md:grid-cols-2 gap-6"></div>
           <div className="flex flex-col md:flex-row justify-center items-center mt-40 gap-6">
             <Image
