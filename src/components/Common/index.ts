@@ -1,3 +1,4 @@
+export * from './Editor'
 export * from './Footer'
 export * from './Navbar'
 export * from './Portfolio'

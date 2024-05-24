@@ -1,6 +1,4 @@
 import { DetailHero, BackBlog, GotoMedium } from '@/components'
-import Link from 'next/link'
-import { IconArrowLeft } from '@tabler/icons-react'
 
 export default function page() {
   return (
