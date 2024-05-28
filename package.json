@@ -11,6 +11,8 @@
   "dependencies": {
     "@nextui-org/popover": "^2.1.21",
     "@nextui-org/react": "^2.3.6",
+    "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.43.4",
     "@tabler/icons-react": "^3.3.0",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.1.8",
