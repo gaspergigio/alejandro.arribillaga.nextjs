@@ -1,11 +1,14 @@
 'use client'
-import React from 'react'
 import { format } from 'date-fns'
-import { PostCardProps } from './PostCard.types'
+import Image from 'next/image'
 import Link from 'next/link'
-import { IconEdit } from '@tabler/icons-react'
-import { Tooltip } from '@nextui-org/tooltip'
 import { useRouter } from 'next/navigation'
+
+import { IconEdit } from '@tabler/icons-react'
+
+import { Tooltip } from '@nextui-org/tooltip'
+
+import { PostCardProps } from './PostCard.types'
 
 export default function PostCard({ isFeatured, imgSrc, publishDate, title, slug, children }: PostCardProps) {
   const cardWidth = isFeatured ? 'w-full' : 'xl:w-1/4 lg:w-1/3 md:w-1/2'
@@ -20,7 +23,15 @@ export default function PostCard({ isFeatured, imgSrc, publishDate, title, slug,
       <div className="flex flex-col h-full border border-gray-400 rounded-lg p-4 hover:shadow-md transition-shadow duration-300">
         {!isFeatured && (
           <div className="mb-8 overflow-hidden rounded w-24 h-24 mx-auto">
-            <img src={imgSrc} alt="" className="w-full h-full object-cover" />
+            {imgSrc && (
+              <Image
+                alt="post card image"
+                className="w-full h-full object-cover"
+                src={imgSrc}
+                width={320}
+                height={320}
+              />
+            )}
           </div>
         )}
         <div>

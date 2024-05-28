@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+
 import './globals.css'
 import { Footer, Navbar } from '@/components'
 
 const inter = Inter({ subsets: ['latin'] })
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const metadata: Metadata = {
   title: 'Frontend Developer in React | Alejandro Arribillaga',
   description:

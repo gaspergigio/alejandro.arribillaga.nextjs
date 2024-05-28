@@ -1,5 +1,6 @@
-import { PostCard, Posts } from '@/components'
 import TechImage from '@/assets/technology/javascript-736400_640.png'
+import { PostCard, Posts } from '@/components'
+
 export default function Page() {
   return (
     <main>

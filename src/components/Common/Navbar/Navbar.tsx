@@ -1,7 +1,11 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+
 import Logo from '@/assets/logo.webp'
+
 import NavbarItem from './NavbarItem'
 
 export default function Navbar() {
@@ -23,7 +27,7 @@ export default function Navbar() {
     <nav className="flex justify-between bg-secondary text-white w-screen fixed z-50">
       <div className="px-5 xl:px-12 py-6 flex w-full items-center">
         <a className="text-3xl font-bold font-heading" href="#">
-          <img className="h-9 rounded-full" src={Logo.src} alt="logo" />
+          <Image alt="logo" className="h-9 rounded-full" src={Logo.src} width={36} height={36} />
         </a>
         {/* Nav Links */}
         <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">

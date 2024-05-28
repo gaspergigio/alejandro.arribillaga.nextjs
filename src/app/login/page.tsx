@@ -1,5 +1,7 @@
-import { Tooltip } from '@nextui-org/tooltip'
 import { IconBrandGithub, IconBrandLinkedin, IconBrandGoogle, IconBrandApple } from '@tabler/icons-react'
+
+import { Tooltip } from '@nextui-org/tooltip'
+
 export default function Page() {
   return (
     <section className="extend-height">

@@ -1,3 +1,6 @@
+import Link from 'next/link'
+
+import TechImage from '@/assets/technology/javascript-736400_640.png'
 import {
   Home,
   About,
@@ -12,8 +15,6 @@ import {
   Posts,
   PostCard,
 } from '@/components'
-import Link from 'next/link'
-import TechImage from '@/assets/technology/javascript-736400_640.png'
 
 export default function Page() {
   return (

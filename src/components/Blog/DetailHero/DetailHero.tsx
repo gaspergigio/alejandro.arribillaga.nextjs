@@ -1,6 +1,8 @@
 import Image from 'next/image'
-import { Chip } from '@nextui-org/chip'
+
 import TechImage from '@/assets/technology/javascript-736400_640.png'
+import { Chip } from '@nextui-org/chip'
+
 export default function DetailHero() {
   return (
     <section className="text-gray-600 body-font pt-4">

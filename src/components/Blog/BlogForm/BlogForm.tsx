@@ -1,18 +1,21 @@
 'use client'
-import { HtmlEditor } from '@/components'
 import { useState } from 'react'
 
+import Image from 'next/image'
+
+import { HtmlEditor } from '@/components'
+
 export default function BlogForm() {
-  const [imagePreview, setImagePreview] = useState<any>(null)
-  const [thumbPreview, setThumbPreview] = useState<any>(null)
+  const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const [thumbPreview, setThumbPreview] = useState<string | null>(null)
   const [content, setContent] = useState('')
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>, setImage: (value: any) => void) => {
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>, setImage: (value: string | null) => void) => {
     const file = event.target.files?.[0]
     if (file) {
       const reader = new FileReader()
       reader.onloadend = () => {
-        setImage(reader.result)
+        if (typeof reader.result === 'string') setImage(reader.result)
       }
       reader.readAsDataURL(file)
     } else {
@@ -67,7 +70,7 @@ export default function BlogForm() {
             </div>
             {imagePreview && (
               <div className="mt-4">
-                <img src={imagePreview} alt="Image Preview" className="max-h-48 rounded-lg" />
+                <Image alt="Image Preview" className="max-h-48 rounded-lg" src={imagePreview} width={48} height={48} />
               </div>
             )}
           </div>
@@ -87,7 +90,13 @@ export default function BlogForm() {
             </div>
             {thumbPreview && (
               <div className="mt-4">
-                <img src={thumbPreview} alt="Image Preview" className="max-h-48 rounded-lg" />
+                <Image
+                  alt="Thumbnail Preview"
+                  className="max-h-48 rounded-lg"
+                  src={thumbPreview}
+                  width={48}
+                  height={48}
+                />
               </div>
             )}
           </div>

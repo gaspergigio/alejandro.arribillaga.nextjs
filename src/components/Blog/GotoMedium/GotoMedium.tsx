@@ -13,6 +13,7 @@ export default function GotoMedium() {
             <a
               href="https://medium.com/@alejandroarribillaga"
               target="_blank"
+              rel="noreferrer"
               className="flex items-center justify-center aspect-square text-white shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-20 w-40">
               View on Medium
             </a>

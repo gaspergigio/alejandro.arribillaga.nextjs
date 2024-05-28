@@ -1,10 +1,18 @@
+import Image from 'next/image'
+
 import ProfileImg from '@/assets/profile.webp'
 
 export default function About() {
   return (
     <div className="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary shadow-xl dark:shadow-thick rounded-3xl p-8">
       <div className="relative flex items-center gap-x-4">
-        <img src={ProfileImg.src} alt="" className="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5" />
+        <Image
+          alt="my profile"
+          className="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"
+          src={ProfileImg.src}
+          width={40}
+          height={40}
+        />
         <div className="text-sm leading-6">
           <p className="font-semibold text-primary dark:text-white">
             <a href="#">
@@ -19,7 +27,7 @@ export default function About() {
         Hey, welcome to my site!
       </p>
       <p className="mt-4 text-lg tracking-tight font-medium text-primary dark:text-white md:text-2xl">
-        I'm a passionate Front End Developer with a wealth of experience in crafting intuitive user interfaces and
+        {`I'm`} a passionate Front End Developer with a wealth of experience in crafting intuitive user interfaces and
         architecting scalable applications. Proficient in ReactJS, Angular, and familiar with other state management
         libraries like Jotai, Redux, and Recoil, I excel in building dynamic and interactive web applications.
         <br /> <br />

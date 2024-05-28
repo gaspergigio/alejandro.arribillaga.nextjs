@@ -1,7 +1,9 @@
 import Image from 'next/image'
-import { PortfolioCardProps } from './Portfolio.types'
+
 import { Tooltip } from '@nextui-org/tooltip'
+
 import styles from './Portfolio.module.css'
+import { PortfolioCardProps } from './Portfolio.types'
 
 export default function PorfolioCard({ isFeatured, title, src, category, children, skills }: PortfolioCardProps) {
   const cardWidth = isFeatured ? 'xl:w-1/2 md:w-1/1' : 'xl:w-1/4 lg:w-1/3 md:w-1/2'

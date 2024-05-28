@@ -58,6 +58,7 @@ export default function Footer() {
                 <a
                   href="https://github.com/gaspergigio"
                   target="_blank"
+                  rel="noreferrer"
                   className="block text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80">
                   <IconBrandGithub color="white" />
                 </a>
@@ -67,6 +68,7 @@ export default function Footer() {
                 <a
                   href="https://www.linkedin.com/in/alejandroarribillaga"
                   target="_blank"
+                  rel="noreferrer"
                   className="block text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80">
                   <IconBrandLinkedin color="white" />
                 </a>

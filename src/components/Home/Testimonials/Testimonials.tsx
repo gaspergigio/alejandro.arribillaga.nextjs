@@ -7,11 +7,11 @@ export default function Testimonials() {
       <div className="md:grid md:grid-cols-2 gap-6 lg:grid-cols-1">
         <div>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            "Alejandro is an excellent professional, both technically and in terms of soft skills. I had the opportunity
+            {`"Alejandro is an excellent professional, both technically and in terms of soft skills. I had the opportunity
             to work with him for a couple of years where I could realize that in addition to having great technical
             skills, he always has a complete picture of the product or solution that he is working on. He is passionate
             about technology and this keeps him in constant training and willing to help other team members or people in
-            charge at any time."
+            charge at any time."`}
           </p>
           <p className="text-xs mt-2 text-zinc-500">
             <span className="block text-xs">Damian Galletini</span>
@@ -22,12 +22,12 @@ export default function Testimonials() {
         </div>
         <div className="mt-4">
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            "I've had the privilege of working alongside Alejandro, and I am consistently impressed by his dedication to
+            {`"I've had the privilege of working alongside Alejandro, and I am consistently impressed by his dedication to
             excellence. He brings a deep passion for front-end development, particularly in React, and consistently
             delivers high-quality work. Alejandro proactively seeks new challenges and learning opportunities, which
             greatly benefits our team's success. His collaborative nature and strong communication skills make him a
             valuable asset to any project. In summary, Alejandro is a skilled front-end engineer with a proactive
-            attitude and a collaborative spirit. It's been a pleasure working with him."
+            attitude and a collaborative spirit. It's been a pleasure working with him."`}
           </p>
           <p className="text-xs mt-2 text-zinc-500">
             <span className="block text-xs">Tatevik Harutyunyan</span>
@@ -36,11 +36,11 @@ export default function Testimonials() {
         </div>
         <div className="mt-4">
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            "Alejandro is an excellent professional, with knowledge in many technologies and a good quality criterion. I
+            {`"Alejandro is an excellent professional, with knowledge in many technologies and a good quality criterion. I
             was fortunate to work with him on several projects and achieve great challenges. He is a results-oriented
             person, capable of working in a team and leading it. He has a comprehensive vision of the products and
             projects that allows him to understand the business needs and requirements, schedule them, and deliver
-            products with great professionalism."
+            products with great professionalism."`}
           </p>
           <p className="text-xs mt-2 text-zinc-500">
             <span className="block text-xs">Gerardo Boiero Rovera</span>

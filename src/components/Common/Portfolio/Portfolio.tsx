@@ -1,7 +1,7 @@
-import { PortfolioProps } from './Portfolio.types'
 import PorfolioCard from './PorfolioCard'
 import { portfolioData } from './PorfolioData'
 import styles from './Portfolio.module.css'
+import { PortfolioProps, Skills } from './Portfolio.types'
 
 export default function Portfolio({ isFeatured, title, children }: PortfolioProps) {
   const portfolioItems = isFeatured ? portfolioData.slice(0, 4) : portfolioData
@@ -20,7 +20,7 @@ export default function Portfolio({ isFeatured, title, children }: PortfolioProp
               title={title}
               src={src}
               category={category}
-              skills={skills as any}>
+              skills={skills as Skills[]}>
               <p
                 className={`text-sm text-zinc-500 dark:text-zinc-400 ${isFeatured ? '' : 'h-48'} ${styles.description}`}>
                 {description}

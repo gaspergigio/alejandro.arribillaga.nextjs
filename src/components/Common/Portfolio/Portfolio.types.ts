@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ReactNode } from 'react'
 
 export type PortfolioProps = {
   isFeatured?: boolean
@@ -9,7 +10,7 @@ export type PortfolioProps = {
 export type PortfolioCardProps = {
   isFeatured?: boolean
   src: string
-  category: String
+  category: string
   title: string
   skills?: Skills[]
   children: ReactNode

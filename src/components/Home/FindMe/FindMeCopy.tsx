@@ -1,6 +1,7 @@
 'use client'
-import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
 import { IconCopy } from '@tabler/icons-react'
+
+import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
 
 export default function FindMeCopy() {
   const copyToClipboard = () => {

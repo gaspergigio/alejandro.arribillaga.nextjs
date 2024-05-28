@@ -1,17 +1,3 @@
-import Basemintgang from '@/assets/portfolio/basemintgang.thumb.webp'
-import Wedplanco from '@/assets/portfolio/wedplanco.thumb.png'
-import Geopop from '@/assets/portfolio/geopop.thumb.png'
-import Scalio from '@/assets/portfolio/scalio-thumb.jpg'
-import Nugverse from '@/assets/portfolio/nugverse.thumb.png'
-import Builder from '@/assets/portfolio/webbuilder.thumb.png'
-import Cmt from '@/assets/portfolio/cmt.thumb.webp'
-import AuthenticCapital from '@/assets/portfolio/authenticcapital.thumb.webp'
-import Buttonwood from '@/assets/portfolio/buttonwood.thumb.webp'
-import Casper from '@/assets/portfolio/casper.thumb.webp'
-import Outlaw from '@/assets/portfolio/outlaw.thumb.webp'
-import Connor from '@/assets/portfolio/connor.thumb.png'
-import Sep from '@/assets/portfolio/sep.thumb.png'
-import Yo from '@/assets/portfolio/yo.thumb.png'
 import {
   IconBrandReact,
   IconBrandAngular,
@@ -29,8 +15,22 @@ import {
   IconBrandStorybook,
   IconSql,
   IconBrandVercel,
-  IconApi,
 } from '@tabler/icons-react'
+
+import AuthenticCapital from '@/assets/portfolio/authenticcapital.thumb.webp'
+import Basemintgang from '@/assets/portfolio/basemintgang.thumb.webp'
+import Buttonwood from '@/assets/portfolio/buttonwood.thumb.webp'
+import Casper from '@/assets/portfolio/casper.thumb.webp'
+import Cmt from '@/assets/portfolio/cmt.thumb.webp'
+import Connor from '@/assets/portfolio/connor.thumb.png'
+import Geopop from '@/assets/portfolio/geopop.thumb.png'
+import Nugverse from '@/assets/portfolio/nugverse.thumb.png'
+import Outlaw from '@/assets/portfolio/outlaw.thumb.webp'
+import Scalio from '@/assets/portfolio/scalio-thumb.jpg'
+import Sep from '@/assets/portfolio/sep.thumb.png'
+import Builder from '@/assets/portfolio/webbuilder.thumb.png'
+import Wedplanco from '@/assets/portfolio/wedplanco.thumb.png'
+import Yo from '@/assets/portfolio/yo.thumb.png'
 
 export const portfolioData = [
   {

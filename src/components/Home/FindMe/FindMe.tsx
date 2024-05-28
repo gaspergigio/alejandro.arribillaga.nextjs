@@ -1,5 +1,6 @@
-import FindMeCopy from './FindMeCopy'
 import { IconBrandLinkedin, IconBrandGithub, IconMail, IconBrandMedium } from '@tabler/icons-react'
+
+import FindMeCopy from './FindMeCopy'
 
 function FindMe({ children }: { children: React.ReactNode }) {
   return (
@@ -7,7 +8,7 @@ function FindMe({ children }: { children: React.ReactNode }) {
       <div className="w-full">
         <p className="text-xl font-normal tracking-tight text-primary dark:text-white lg:text-8xl">Find me on</p>
         <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">
-          Feel free to reach out to me if you have any questions, comments, or inquiries. I'm here to assist you with
+          Feel free to reach out to me if you have any questions, comments, or inquiries.{`I'm`} here to assist you with
           anything you need and address any concerns you may have. Your feedback is valuable to me, and I look forward
           to hearing from you
         </p>
@@ -38,19 +39,22 @@ function FindMe({ children }: { children: React.ReactNode }) {
           <a
             href="https://medium.com/@alejandroarribillaga"
             target="_blank"
-            className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-12 w-12">
+            className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-12 w-12"
+            rel="noreferrer">
             <IconBrandMedium color="white" strokeWidth={0.8} />
           </a>
           <a
             href="https://github.com/gaspergigio"
             target="_blank"
-            className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-12 w-12">
+            className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-12 w-12"
+            rel="noreferrer">
             <IconBrandGithub color="white" strokeWidth={0.8} />
           </a>
           <a
             href="https://www.linkedin.com/in/alejandroarribillaga"
             target="_blank"
-            className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-12 w-12">
+            className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-12 w-12"
+            rel="noreferrer">
             <IconBrandLinkedin color="white" strokeWidth={0.8} />
           </a>
         </div>

@@ -12,8 +12,9 @@ export default function Page() {
                 applications to elegant user interfaces, each project represents my dedication to crafting impactful
                 digital experiences. Explore how I leverage my expertise in frontend development and fullstack knowledge
                 to deliver innovative solutions that resonate with users and drive business success.
-                <br /> <br /> On this page, I'm only showcasing relevant and more recent projects. Many other projects
-                have been left out of the enumerated list displayed here.
+                <br /> <br />{' '}
+                {`On this page, I'm only showcasing relevant and more recent projects. Many other projects
+                have been left out of the enumerated list displayed here.`}
               </p>
             </Portfolio>
           </div>

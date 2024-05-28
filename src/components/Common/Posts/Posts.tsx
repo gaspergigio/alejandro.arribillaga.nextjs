@@ -1,12 +1,17 @@
-import Link from 'next/link'
-import { PostsProps } from './Posts.types'
 import React from 'react'
-import { Tooltip } from '@nextui-org/tooltip'
+
+import Link from 'next/link'
+
 import { IconPlus } from '@tabler/icons-react'
+
 import { CircularProgress } from '@nextui-org/react'
+import { Tooltip } from '@nextui-org/tooltip'
+
+import { PostsProps } from './Posts.types'
 
 export default function Posts({ isFeatured, title, description, children }: PostsProps) {
   const modifiedChildren = React.Children.map(children, (child) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return React.cloneElement(child as any, { isFeatured: isFeatured })
   })
   return (
