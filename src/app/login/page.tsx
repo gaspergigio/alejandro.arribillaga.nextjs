@@ -1,43 +1,7 @@
-import { cookies } from 'next/headers'
-
-import { IconBrandGithub, IconBrandLinkedin, IconBrandGoogle, IconBrandApple } from '@tabler/icons-react'
-
-import { Tooltip } from '@nextui-org/tooltip'
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
+import OAuthLogin from '@/components/Login/OAuthLogin'
 export default async function Page() {
-  //Change this
-  const cookieStore = cookies()
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value
-        },
-        set(name: string, value: string, options: CookieOptions) {
-          try {
-            cookieStore.set({ name, value, ...options })
-          } catch (error) {
-            // The `set` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
-          }
-        },
-        remove(name: string, options: CookieOptions) {
-          try {
-            cookieStore.set({ name, value: '', ...options })
-          } catch (error) {
-            // The `delete` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
-          }
-        },
-      },
-    }
-  )
-
-  const { data } = await supabase.from('Entity').select('*')
+  /*   const supabase = getServerClient()
+  const { data } = await supabase.from('Entity').select('*') */
 
   return (
     <section className="extend-height">
@@ -96,33 +60,7 @@ export default async function Page() {
             <div className="text-center mt-4">
               <p className="text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">OR sign in with:</p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 mt-8 w-full">
-              <Tooltip content="Github" color="primary">
-                <button className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-10 w-10">
-                  {<IconBrandGithub color="white" strokeWidth={0.8} />}
-                </button>
-              </Tooltip>
-              <Tooltip content="Linkedin" color="primary">
-                <button className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-10 w-10">
-                  {<IconBrandLinkedin color="white" strokeWidth={0.8} />}
-                </button>
-              </Tooltip>
-              <Tooltip content="Google" color="primary">
-                <button className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-10 w-10">
-                  {<IconBrandGoogle color="white" strokeWidth={0.8} />}
-                </button>
-              </Tooltip>
-              <Tooltip content="Apple" color="primary">
-                <button className="flex items-center justify-center aspect-square shadow-xl dark:shadow-thick hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20 duration-300 group transition-all h-10 w-10">
-                  {<IconBrandApple color="white" strokeWidth={0.8} />}
-                </button>
-              </Tooltip>
-            </div>
-            <div className="text-center mt-4">
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">
-                {JSON.stringify(data)}
-              </p>
-            </div>
+            <OAuthLogin />
           </div>
         </div>
       </div>

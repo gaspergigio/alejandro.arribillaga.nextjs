@@ -5,11 +5,16 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 import Logo from '@/assets/logo.webp'
+import { signOut, getSession } from '@/server'
+import { Session } from '@supabase/supabase-js'
 
+import NavbarAuthButton from './NavbarAuthButton'
 import NavbarItem from './NavbarItem'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isLoading, setLoading] = useState(true)
+  const [session, setSession] = useState<Session | null>(null)
   const pathname = usePathname()
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -22,6 +27,21 @@ export default function Navbar() {
       document.body.classList.remove('overflow-hidden')
     }
   }, [isOpen])
+
+  useEffect(() => {
+    const fetchSession = async () => {
+      const data = await getSession()
+      setSession(data.session)
+      setLoading(false)
+    }
+
+    fetchSession()
+  }, [])
+
+  const handleSignOut = () => {
+    signOut()
+    setSession(null)
+  }
 
   return (
     <nav className="flex justify-between bg-secondary text-white w-screen fixed z-50">
@@ -46,21 +66,7 @@ export default function Navbar() {
         </ul>
         {/* Header Icons */}
         <div className="hidden md:flex items-center space-x-5 items-center">
-          <a className="flex items-center hover:text-gray-200" href="/login">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 hover:text-gray-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </a>
+          {!isLoading && pathname !== '/login' && <NavbarAuthButton session={session} handleSignOut={handleSignOut} />}
         </div>
       </div>
       {/* Responsive navbar */}
