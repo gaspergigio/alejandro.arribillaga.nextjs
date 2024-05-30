@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 import Logo from '@/assets/logo.webp'
-import { signOut, getSession } from '@/server'
+import { signOut, signInOAuth, getSession } from '@/server'
 import { Session } from '@supabase/supabase-js'
 
 import NavbarAuthButton from './NavbarAuthButton'
@@ -13,7 +13,7 @@ import NavbarItem from './NavbarItem'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isLoading, setLoading] = useState(true)
+  const [disabled, setDisabled] = useState(true)
   const [session, setSession] = useState<Session | null>(null)
   const pathname = usePathname()
   const toggleMenu = () => {
@@ -32,15 +32,20 @@ export default function Navbar() {
     const fetchSession = async () => {
       const data = await getSession()
       setSession(data.session)
-      setLoading(false)
+      setDisabled(false)
     }
 
     fetchSession()
   }, [])
 
-  const handleSignOut = () => {
-    signOut()
-    setSession(null)
+  const handleGitHubClick = () => {
+    if (session === null) {
+      setDisabled(true)
+      signInOAuth()
+    } else {
+      signOut()
+      setSession(null)
+    }
   }
 
   return (
@@ -66,7 +71,7 @@ export default function Navbar() {
         </ul>
         {/* Header Icons */}
         <div className="hidden md:flex items-center space-x-5 items-center">
-          {!isLoading && pathname !== '/login' && <NavbarAuthButton session={session} handleSignOut={handleSignOut} />}
+          <NavbarAuthButton session={session} handleClick={handleGitHubClick} disabled={disabled} />
         </div>
       </div>
       {/* Responsive navbar */}
