@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import TechImage from '@/assets/technology/javascript-736400_640.png'
+import TechImage from '@/assets/technology/JavascriptLogo.png'
 import { Chip } from '@nextui-org/chip'
 
 export default function DetailHero() {

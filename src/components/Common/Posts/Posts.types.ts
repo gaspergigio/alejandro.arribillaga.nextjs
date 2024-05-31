@@ -3,4 +3,5 @@ export type PostsProps = {
   description: React.ReactNode
   children: React.ReactNode
   isFeatured?: boolean
+  isAdmin: boolean
 }

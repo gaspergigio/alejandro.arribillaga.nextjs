@@ -1,7 +1,10 @@
-import TechImage from '@/assets/technology/javascript-736400_640.png'
+import { isUserAdmin } from '@/app/actions'
+import TechImage from '@/assets/technology/JavascriptLogo.png'
 import { PostCard, Posts } from '@/components'
 
-export default function Page() {
+export default async function Page() {
+  const isAdmin = await isUserAdmin()
+
   return (
     <main>
       <section>
@@ -9,6 +12,7 @@ export default function Page() {
           <div className="mt-20">
             <Posts
               title="My Blog"
+              isAdmin={isAdmin}
               description={
                 <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light">
                   Explore my latest articles on programming, web development, and technology. Find quality technical
