@@ -5,7 +5,7 @@ export default function Page() {
     <main>
       <section>
         <div className="px-4 xl:px-20 py-4">
-          <div className="mt-20">
+          <div className="mt-24">
             <Portfolio title="Explore My Portfolio">
               <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
                 Discover my Portfolio showcasing a blend of frontend and fullstack projects. From dynamic web

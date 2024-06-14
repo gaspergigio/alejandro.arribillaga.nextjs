@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import './globals.css'
+import { getSession } from '@/app/actions'
 import { Footer, Navbar } from '@/components'
 import { SessionProvider } from '@/components'
 
@@ -14,15 +15,16 @@ export const metadata: Metadata = {
     "Welcome to Alejandro Arribillaga's website! As a frontend developer specialized in React, I'm here to provide innovative digital solutions and exceptional user experiences. Explore my portfolio and discover how I can help take your project to the next level.",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const session = await getSession()
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider>
+        <SessionProvider serverSession={session}>
           <Navbar />
           {children}
           <Footer />

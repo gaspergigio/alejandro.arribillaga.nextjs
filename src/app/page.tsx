@@ -41,7 +41,6 @@ export default function Page() {
         <Education />
         <Posts
           title="My latest Posts"
-          isAdmin={false}
           isFeatured
           description={
             <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light">

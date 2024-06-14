@@ -1,18 +1,14 @@
-import { isUserAdmin } from '@/app/actions'
 import TechImage from '@/assets/technology/JavascriptLogo.png'
 import { PostCard, Posts } from '@/components'
 
 export default async function Page() {
-  const isAdmin = await isUserAdmin()
-
   return (
     <main>
       <section>
         <div className="px-4 xl:px-20 py-4">
-          <div className="mt-20">
+          <div className="mt-24">
             <Posts
               title="My Blog"
-              isAdmin={isAdmin}
               description={
                 <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light">
                   Explore my latest articles on programming, web development, and technology. Find quality technical

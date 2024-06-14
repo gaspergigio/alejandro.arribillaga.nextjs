@@ -1,11 +1,11 @@
 'use client'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 import Logo from '@/assets/logo.webp'
-import { SessionContext } from '@/components'
+import { useSessionContext } from '@/components'
 import { signOut, signInOAuth, getSession } from '@/server'
 
 import NavbarAuthButton from './NavbarAuthButton'
@@ -13,8 +13,8 @@ import NavbarItem from './NavbarItem'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [disabled, setDisabled] = useState(true)
-  const context = useContext(SessionContext)
+  const [disabled, setDisabled] = useState(false)
+  const { session, setSession, setIsAdmin } = useSessionContext()
   const pathname = usePathname()
 
   const toggleMenu = () => {
@@ -32,7 +32,7 @@ export default function Navbar() {
   useEffect(() => {
     const fetchSession = async () => {
       const session = await getSession()
-      context?.setSession(session)
+      setSession(session)
       setDisabled(false)
     }
 
@@ -40,12 +40,13 @@ export default function Navbar() {
   }, [])
 
   const handleGitHubClick = () => {
-    if (context?.session === null) {
+    if (session === null) {
       setDisabled(true)
       signInOAuth()
     } else {
       signOut()
-      context?.setSession(null)
+      setSession(null)
+      setIsAdmin(false)
     }
   }
 
@@ -72,7 +73,7 @@ export default function Navbar() {
         </ul>
         {/* Header Icons */}
         <div className="hidden md:flex items-center space-x-5 items-center">
-          <NavbarAuthButton session={context?.session ?? null} handleClick={handleGitHubClick} disabled={disabled} />
+          <NavbarAuthButton session={session} handleClick={handleGitHubClick} disabled={disabled} />
         </div>
       </div>
       {/* Responsive navbar */}

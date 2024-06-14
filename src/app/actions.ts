@@ -50,4 +50,4 @@ async function isUserAdmin() {
   return data?.length > 0
 }
 
-export { getSeverSession, isUserAdmin }
+export { getSeverSession, isUserAdmin, getSession }

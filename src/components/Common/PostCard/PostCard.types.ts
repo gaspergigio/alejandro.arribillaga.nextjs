@@ -5,5 +5,4 @@ export type PostCardProps = {
   title: string
   children: React.ReactNode
   slug: string
-  isAdmin?: boolean
 }
