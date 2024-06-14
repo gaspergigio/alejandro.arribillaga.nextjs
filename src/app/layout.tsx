@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import './globals.css'
-import { getSession } from '@/app/actions'
+import { getSession, isUserAdmin } from '@/app/actions'
 import { Footer, Navbar } from '@/components'
 import { SessionProvider } from '@/components'
 
@@ -21,10 +21,11 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const session = await getSession()
+  const isServerUserAdmin = await isUserAdmin()
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider serverSession={session}>
+        <SessionProvider serverSession={session} isServerUserAdmin={isServerUserAdmin}>
           <Navbar />
           {children}
           <Footer />

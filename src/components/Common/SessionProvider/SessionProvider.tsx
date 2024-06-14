@@ -24,13 +24,15 @@ export const useSessionContext = () => {
 
 export default function SessionProvider({
   serverSession,
+  isServerUserAdmin,
   children,
 }: {
   serverSession: Session | null
+  isServerUserAdmin: boolean
   children: React.ReactNode
 }) {
   const [session, setSession] = useState<Session | null>(serverSession)
-  const [isAdmin, setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(isServerUserAdmin)
 
   useEffect(() => {
     async function fetchData() {
