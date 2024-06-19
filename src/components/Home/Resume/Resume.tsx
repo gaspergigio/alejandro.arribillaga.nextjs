@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default function Resume() {
   return (
     <div className="ring-1 dark:ring-white/10  ring-primary/5 flex flex-col justify-between items-center rounded-3xl shadow-xl dark:shadow-thick p-8  bg-white dark:bg-secondary overflow-hidden text-center lg:text-left">

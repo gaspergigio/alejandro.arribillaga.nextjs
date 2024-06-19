@@ -1,8 +1,9 @@
+'use server'
 import { cookies } from 'next/headers'
 
 import { type CookieOptions, createServerClient } from '@supabase/ssr'
 
-async function getSeverSession() {
+async function getServerSupabase() {
   const cookieStore = cookies()
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -24,17 +25,28 @@ async function getSeverSession() {
   return supabase
 }
 
-async function getSession() {
-  const supabase = await getSeverSession()
-  const { data } = await supabase.auth.getSession()
-  return data.session
+async function getServerUser() {
+  const supabase = await getServerSupabase()
+  const { data, error } = await supabase.auth.getUser()
+
+  if (error || !data.user) {
+    console.warn('Invalid session cookie detected, clearing session cookie', error, !data.user)
+    const cookieStore = cookies()
+    const cookiesList = cookieStore.getAll()
+    cookiesList.filter((x) => x.name.includes('-auth-token.')).forEach((x) => cookieStore.delete(x.name))
+    return null
+  }
+
+  return data.user
 }
 
-async function isUserAdmin() {
-  const supabase = await getSeverSession()
-  const session = await getSession()
+async function isServerUserAdmin() {
+  const user = await getServerUser()
+  if (!user) return false
 
-  const { data } = await supabase
+  const supabase = await getServerSupabase()
+
+  const { data, error } = await supabase
     .from('Rol')
     .select(
       `
@@ -42,12 +54,15 @@ async function isUserAdmin() {
     Entity!inner(name)
   `
     )
-    .eq('user_id', session?.user.id)
+    .eq('user_id', user.id)
     .eq('Entity.name', 'SuperAdmin')
 
-  if (!data?.length) return false
+  if (error) {
+    console.error('Error fetching user roles:', error)
+    return false
+  }
 
   return data?.length > 0
 }
 
-export { getSeverSession, isUserAdmin, getSession }
+export { getServerSupabase, isServerUserAdmin, getServerUser }

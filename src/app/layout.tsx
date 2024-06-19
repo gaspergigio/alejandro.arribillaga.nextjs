@@ -1,14 +1,14 @@
+import React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import './globals.css'
-import { getSession, isUserAdmin } from '@/app/actions'
+import { getServerUser, isServerUserAdmin } from '@/app/actions'
 import { Footer, Navbar } from '@/components'
 import { SessionProvider } from '@/components'
 
 const inter = Inter({ subsets: ['latin'] })
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const metadata: Metadata = {
   title: 'Frontend Developer in React | Alejandro Arribillaga',
   description:
@@ -20,12 +20,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const session = await getSession()
-  const isServerUserAdmin = await isUserAdmin()
+  const user = await getServerUser()
+  const isAdmin = await isServerUserAdmin()
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider serverSession={session} isServerUserAdmin={isServerUserAdmin}>
+        <SessionProvider serverSessionUser={user} isServerUserAdmin={isAdmin}>
           <Navbar />
           {children}
           <Footer />

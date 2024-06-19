@@ -1,6 +1,13 @@
+import React from 'react'
 import { BlogForm } from '@/components'
+import { isServerUserAdmin } from '@/app/actions'
+import { redirect } from 'next/navigation'
+export default async function page() {
+  const isUserAdmin = await isServerUserAdmin()
+  if (!isUserAdmin) {
+    redirect('/')
+  }
 
-export default function page() {
   return (
     <section>
       <div className="flex flex-col items-center p-4">

@@ -1,16 +1,18 @@
+import React from 'react'
 import { Tooltip } from '@nextui-org/tooltip'
-import { Session } from '@supabase/supabase-js'
+import { User } from '@supabase/supabase-js'
+
 export default function NavbarAuthButton({
-  session,
+  user,
   handleClick,
   disabled,
 }: {
-  session: Session | null
+  user: User | null
   handleClick: () => void
   disabled: boolean
 }) {
   return (
-    <Tooltip content={session === null ? 'Sign in' : 'Sign out'} color="primary">
+    <Tooltip content={user === null ? 'Sign in' : 'Sign out'} color="primary">
       <button
         type="button"
         disabled={disabled}
@@ -47,7 +49,7 @@ export default function NavbarAuthButton({
             </svg>
             <span className="sr-only">Loading...</span>
           </div>
-        ) : session === null ? (
+        ) : user === null ? (
           'Sign in with Github'
         ) : (
           'Sign out'

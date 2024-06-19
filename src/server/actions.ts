@@ -13,15 +13,17 @@ async function signOut() {
   await supabase.auth.signOut()
 }
 
-async function getSession() {
+async function getUser() {
   const supabase = getClient()
-  const { data } = await supabase.auth.getSession()
-  return data.session
+  const { data } = await supabase.auth.getUser()
+  return data.user
 }
 
 async function isUserAdmin() {
   const supabase = await getClient()
-  const session = await getSession()
+  const user = await getUser()
+
+  if (!user) return false
 
   const { data } = await supabase
     .from('Rol')
@@ -31,7 +33,7 @@ async function isUserAdmin() {
     Entity!inner(name)
   `
     )
-    .eq('user_id', session?.user.id)
+    .eq('user_id', user.id)
     .eq('Entity.name', 'SuperAdmin')
 
   if (!data?.length) return false
@@ -43,4 +45,4 @@ function getClient() {
   return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
 }
 
-export { signInOAuth, signOut, getSession, isUserAdmin }
+export { signInOAuth, signOut, getUser, isUserAdmin }

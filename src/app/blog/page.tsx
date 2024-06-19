@@ -1,3 +1,4 @@
+import React from 'react'
 import TechImage from '@/assets/technology/JavascriptLogo.png'
 import { PostCard, Posts } from '@/components'
 

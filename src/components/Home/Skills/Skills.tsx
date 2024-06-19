@@ -1,3 +1,4 @@
+import React from 'react'
 import { Tooltip } from '@nextui-org/tooltip'
 
 import { skillsData } from './SkillsData'

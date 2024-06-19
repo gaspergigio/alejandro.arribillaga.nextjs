@@ -1,3 +1,4 @@
+import React from 'react'
 import { IconBrandLinkedin, IconBrandGithub, IconMail, IconBrandMedium } from '@tabler/icons-react'
 
 import FindMeCopy from './FindMeCopy'

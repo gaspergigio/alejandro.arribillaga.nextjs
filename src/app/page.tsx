@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 
 import TechImage from '@/assets/technology/JavascriptLogo.png'

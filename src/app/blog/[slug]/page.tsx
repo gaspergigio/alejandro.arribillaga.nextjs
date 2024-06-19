@@ -1,3 +1,4 @@
+import React from 'react'
 import { DetailHero, BackBlog, GotoMedium } from '@/components'
 
 export default function page() {

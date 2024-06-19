@@ -1,3 +1,4 @@
+import React from 'react'
 import Image from 'next/image'
 
 import TechImage from '@/assets/technology/JavascriptLogo.png'

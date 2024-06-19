@@ -1,6 +1,8 @@
+import React from 'react'
 import Image from 'next/image'
 
 import CommingSoon from '@/assets/comming-soon.png'
+
 export default function Page() {
   return (
     <main>

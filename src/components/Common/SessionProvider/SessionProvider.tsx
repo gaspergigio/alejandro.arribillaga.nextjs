@@ -1,19 +1,19 @@
 'use client'
-import { createContext, useContext, useEffect, useState } from 'react'
+
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 import { isUserAdmin } from '@/server'
-import { Session } from '@supabase/supabase-js'
+import { User } from '@supabase/supabase-js'
 
 type SessionContextType = {
-  session: Session | null
-  setSession: (session: Session | null) => void
+  sessionUser: User | null
+  setSessionUser: (session: User | null) => void
   isAdmin: boolean
   setIsAdmin: (session: boolean) => void
 }
 
 export const SessionContext = createContext<SessionContextType | undefined>(undefined)
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useSessionContext = () => {
   const context = useContext(SessionContext)
   if (context === undefined) {
@@ -23,15 +23,15 @@ export const useSessionContext = () => {
 }
 
 export default function SessionProvider({
-  serverSession,
+  serverSessionUser,
   isServerUserAdmin,
   children,
 }: {
-  serverSession: Session | null
+  serverSessionUser: User | null
   isServerUserAdmin: boolean
   children: React.ReactNode
 }) {
-  const [session, setSession] = useState<Session | null>(serverSession)
+  const [sessionUser, setSessionUser] = useState<User | null>(serverSessionUser)
   const [isAdmin, setIsAdmin] = useState(isServerUserAdmin)
 
   useEffect(() => {
@@ -40,14 +40,16 @@ export default function SessionProvider({
       setIsAdmin(admin)
     }
 
-    if (session) {
+    if (sessionUser) {
       fetchData()
     } else {
       setIsAdmin(false)
     }
-  }, [session])
+  }, [sessionUser])
 
   return (
-    <SessionContext.Provider value={{ session, setSession, isAdmin, setIsAdmin }}>{children}</SessionContext.Provider>
+    <SessionContext.Provider value={{ sessionUser, setSessionUser, isAdmin, setIsAdmin }}>
+      {children}
+    </SessionContext.Provider>
   )
 }

@@ -1,3 +1,4 @@
+import React from 'react'
 import { NavbarItemProps } from './Navbar.types'
 
 export default function NavbarItem({ children, to, pathName }: NavbarItemProps) {

@@ -1,3 +1,4 @@
+import React from 'react'
 import PorfolioCard from './PorfolioCard'
 import { portfolioData } from './PorfolioData'
 import styles from './Portfolio.module.css'
