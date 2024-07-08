@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.8.0",
     "@nextui-org/popover": "^2.1.21",
     "@nextui-org/react": "^2.3.6",
     "@supabase/ssr": "^0.3.0",
@@ -20,7 +21,9 @@
     "quill": "^2.0.2",
     "react": "^18",
     "react-dom": "^18",
-    "react-quill": "^2.0.0"
+    "react-hook-form": "^7.52.1",
+    "react-quill": "^2.0.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.1.1",
