@@ -1,12 +1,14 @@
 import React from 'react'
 import { BlogForm } from '@/components'
-import { isServerUserAdmin } from '@/app/actions'
+import { isServerUserAdmin, getBlogStatus } from '@/app/actions'
 import { redirect } from 'next/navigation'
 export default async function page() {
   const isUserAdmin = await isServerUserAdmin()
   if (!isUserAdmin) {
     redirect('/')
   }
+
+  const blogStatus = await getBlogStatus()
 
   return (
     <section>
@@ -19,7 +21,7 @@ export default async function page() {
                 Create a New Post
               </p>
             </div>
-            <BlogForm />
+            <BlogForm statusList={blogStatus ?? []} />
           </div>
         </div>
       </div>

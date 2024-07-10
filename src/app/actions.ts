@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use server'
 import { cookies } from 'next/headers'
 
@@ -65,4 +66,48 @@ async function isServerUserAdmin() {
   return data?.length > 0
 }
 
-export { getServerSupabase, isServerUserAdmin, getServerUser }
+async function getBlogStatusType() {
+  const supabase = await getServerSupabase()
+  const { data, error } = await supabase.from('EntityType').select('id').eq('name', 'Blog Status')
+
+  if (error) {
+    console.error('Error fetching EntityType data:', error)
+    return null
+  }
+
+  if (!data || data.length === 0) {
+    console.log('No EntityType found with name "Blog Status"')
+    return null
+  }
+
+  return data[0].id
+}
+
+async function getBlogStatus() {
+  const supabase = await getServerSupabase()
+  const blogStatusId = await getBlogStatusType()
+
+  const { data, error } = await supabase
+    .from('Entity')
+    .select(
+      `
+    id,
+    name
+  `
+    )
+    .eq('entity_type_id', blogStatusId)
+
+  if (error) {
+    console.error('Error fetching data:', error)
+    return null
+  }
+
+  if (!data) return data
+
+  return data.map((x) => ({
+    text: x.name,
+    value: x.id,
+  }))
+}
+
+export { getServerSupabase, isServerUserAdmin, getServerUser, getBlogStatus }

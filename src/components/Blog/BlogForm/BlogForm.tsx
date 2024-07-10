@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import React, { useRef, useState } from 'react'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
@@ -5,13 +6,13 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { HtmlEditor } from '@/components'
-import { ImageStatus } from './BlogForm.types'
+import { BlogStatus, ImageStatus } from './BlogForm.types'
 import { BlogDialogSchema } from './BlogForm.validations'
 import { removeFile, uploadFile } from '@/server'
 
 type FormData = z.infer<typeof BlogDialogSchema>
 
-export default function BlogForm() {
+export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
   const [imageStatus, setImageStatus] = useState<ImageStatus>({ focused: false, path: '' })
   const [thumbStatus, setThumbStatus] = useState<ImageStatus>({ focused: false, path: '' })
   const imageRef = useRef<HTMLInputElement>(null)
@@ -71,7 +72,14 @@ export default function BlogForm() {
       return
     }
 
-    console.log('On Submit', data, thumbStatus.path, imageStatus.path)
+    const postData = {
+      ...data,
+      img_path: imageStatus.path,
+      thumb_path: thumbStatus.path,
+      // Asegúrate de transformar cualquier otro campo necesario aquí
+    }
+
+    console.log('On Submit', postData)
   }
 
   return (
@@ -189,8 +197,11 @@ export default function BlogForm() {
                 name="status_id"
                 id="status_id"
                 className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
+                {statusList?.map((x) => (
+                  <option key={x.value} value={x.value}>
+                    {x.text}
+                  </option>
+                ))}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
