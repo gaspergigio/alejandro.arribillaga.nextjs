@@ -4,25 +4,24 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import Image from 'next/image'
-
 import { HtmlEditor } from '@/components'
 import { ImageStatus } from './BlogForm.types'
 import { BlogDialogSchema } from './BlogForm.validations'
+import { removeFile, uploadFile } from '@/server'
 
 type FormData = z.infer<typeof BlogDialogSchema>
 
 export default function BlogForm() {
-  const [imageStatus, setImageStatus] = useState<ImageStatus>({ focused: false, preview: '', path: '' })
-  const [thumbStatus, setThumbStatus] = useState<ImageStatus>({ focused: false, preview: '', path: '' })
+  const [imageStatus, setImageStatus] = useState<ImageStatus>({ focused: false, path: '' })
+  const [thumbStatus, setThumbStatus] = useState<ImageStatus>({ focused: false, path: '' })
   const imageRef = useRef<HTMLInputElement>(null)
   const thumbRef = useRef<HTMLInputElement>(null)
 
-  const setImage = (imageType: 'image' | 'thumbnail', filename: string, value: string = '') => {
+  const setImage = (imageType: 'image' | 'thumbnail', path: string) => {
     if (imageType === 'image') {
-      setImageStatus({ focused: true, preview: value, path: filename })
+      setImageStatus({ focused: true, path })
     } else {
-      setThumbStatus({ focused: true, preview: value, path: filename })
+      setThumbStatus({ focused: true, path })
     }
   }
 
@@ -30,23 +29,31 @@ export default function BlogForm() {
     setValue('content', value, { shouldValidate: true })
   }
 
+  const handleImageRespondeCallback = (fullPath: string | null, imageType: 'image' | 'thumbnail') => {
+    if (fullPath) {
+      setImage(imageType, fullPath)
+    }
+  }
+
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>, imageType: 'image' | 'thumbnail') => {
     const inputFile = event.target.files as FileList
     const file = inputFile?.[0]
     if (file) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        if (typeof reader.result === 'string') setImage(imageType, file.name ?? '', reader.result)
-      }
-      reader.readAsDataURL(file)
+      uploadFile(file).then((fullPath: string | null) => handleImageRespondeCallback(fullPath, imageType))
     }
   }
 
   const handleRemoveImage = (imageType: 'image' | 'thumbnail') => {
-    setImage(imageType, '', '')
+    setImage(imageType, '')
     //reset the input file
-    if (imageType === 'image' && imageRef.current) imageRef.current.value = ''
-    if (imageType === 'thumbnail' && thumbRef.current) thumbRef.current.value = ''
+    if (imageType === 'image') {
+      removeFile(imageStatus.path)
+      if (imageRef.current) imageRef.current.value = ''
+    }
+    if (imageType === 'thumbnail') {
+      removeFile(thumbStatus.path)
+      if (thumbRef.current) thumbRef.current.value = ''
+    }
   }
 
   const {
@@ -121,13 +128,13 @@ export default function BlogForm() {
                 <p style={{ color: 'red' }}>Imagen es Requerida</p>
               )}
             </div>
-            {imageStatus.preview && (
+            {imageStatus.path && (
               <div className="mt-4">
-                <Image
-                  alt={imageStatus.path}
+                <img
+                  src={imageStatus.path}
                   style={{ cursor: 'pointer' }}
+                  alt="Blog Image"
                   className="max-h-48 rounded-lg"
-                  src={imageStatus.preview}
                   width={48}
                   height={48}
                   onClick={() => {
@@ -156,12 +163,13 @@ export default function BlogForm() {
                 <p style={{ color: 'red' }}>Thumbnail es Requerido</p>
               )}
             </div>
-            {thumbStatus.preview && (
+            {thumbStatus.path && (
               <div className="mt-4">
-                <Image
-                  alt={thumbStatus.path}
+                <img
+                  src={thumbStatus.path}
+                  style={{ cursor: 'pointer' }}
+                  alt="Thumb Image"
                   className="max-h-48 rounded-lg"
-                  src={thumbStatus.preview}
                   width={48}
                   height={48}
                   onClick={() => {

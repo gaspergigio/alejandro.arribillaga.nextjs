@@ -45,4 +45,35 @@ function getClient() {
   return createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
 }
 
-export { signInOAuth, signOut, getUser, isUserAdmin }
+async function uploadFile(file: File) {
+  const supabase = getClient()
+  //get filename without extension
+  const [fileName, extension] = file.name.split('.')
+  //get timestamp in milliseconds
+  const timestamp = new Date().getTime()
+  const { data, error } = await supabase.storage
+    .from('blog_bucket')
+    .upload(`public/${fileName}.${timestamp}.${extension}`, file)
+  if (error) {
+    console.error('Error uploading file:', error)
+    return null
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return `${(supabase as any).storageUrl}/object/public/${(data as any).fullPath}`
+}
+
+async function removeFile(fullUrl: string) {
+  const supabase = getClient()
+  const url = fullUrl.split('/blog_bucket/')[1]
+  const { error } = await supabase.storage.from('blog_bucket').remove([url])
+
+  if (error) {
+    console.error('Error removing file:', error)
+    return null
+  }
+
+  return true
+}
+
+export { signInOAuth, signOut, getUser, isUserAdmin, uploadFile, removeFile }
