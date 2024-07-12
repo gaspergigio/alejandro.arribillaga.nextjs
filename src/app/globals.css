@@ -346,7 +346,7 @@ video {
   --tw-backdrop-invert: ;
   --tw-backdrop-opacity: ;
   --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia:                                                                                        
+  --tw-backdrop-sepia:                                                                                         
 ;
 }
 
@@ -397,7 +397,7 @@ video {
   --tw-backdrop-invert: ;
   --tw-backdrop-opacity: ;
   --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia:                                                                                        
+  --tw-backdrop-sepia:                                                                                         
 ;
 }
 
@@ -1192,7 +1192,7 @@ video {
 
 .ql-editor {
   min-height: 9.2rem;
-  color: #71717a;
+  color: white !important;
 }
 
 .ql-editor.ql-blank::before {

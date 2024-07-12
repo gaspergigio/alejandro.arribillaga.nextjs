@@ -13,24 +13,18 @@ import { toast } from 'react-hot-toast'
 
 type FormData = z.infer<typeof BlogDialogSchema>
 
-//TODO:
-// 1. Letter has to be white
-// 2. Image error is showing even when the image is uploading
-// 3. Disabled Autocomplete on inputs
-//
-
 export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
-  const [imageStatus, setImageStatus] = useState<ImageStatus>({ focused: false, path: '' })
-  const [thumbStatus, setThumbStatus] = useState<ImageStatus>({ focused: false, path: '' })
+  const [imageStatus, setImageStatus] = useState<ImageStatus>({ focused: false, path: '', isLoading: false })
+  const [thumbStatus, setThumbStatus] = useState<ImageStatus>({ focused: false, path: '', isLoading: false })
   const [contentFocused, setContentFocused] = useState<boolean>(false)
   const imageRef = useRef<HTMLInputElement>(null)
   const thumbRef = useRef<HTMLInputElement>(null)
 
   const setImage = (imageType: 'image' | 'thumbnail', path: string) => {
     if (imageType === 'image') {
-      setImageStatus({ focused: true, path })
+      setImageStatus({ ...imageStatus, focused: true, path })
     } else {
-      setThumbStatus({ focused: true, path })
+      setThumbStatus({ ...thumbStatus, focused: true, path })
     }
   }
 
@@ -98,8 +92,8 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
           toast.success('Post Saved!')
           handleRemoveImage('image')
           handleRemoveImage('thumbnail')
-          setImageStatus({ focused: false, path: '' })
-          setThumbStatus({ focused: false, path: '' })
+          setImageStatus({ focused: false, path: '', isLoading: false })
+          setThumbStatus({ focused: false, path: '', isLoading: false })
           reset(undefined, { keepDirtyValues: false, keepIsSubmitted: false, keepErrors: false, keepValues: false })
           setContentFocused(false)
         } else {
@@ -124,10 +118,11 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
               <input
                 {...register('title')}
                 type="text"
+                autoComplete="off"
                 name="title"
                 id="title"
                 placeholder="Title"
-                className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
               {errors.title && <p style={{ color: 'red' }}>{errors.title.message}</p>}
             </div>
@@ -143,7 +138,7 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
                 name="published_date"
                 id="published_date"
                 placeholder="Published Date"
-                className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
               {errors.published_date && <p style={{ color: 'red' }}>{errors.published_date.message}</p>}
             </div>
@@ -158,18 +153,20 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
                 type="file"
                 id="image"
                 accept="image/*"
-                className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                onClick={() => setImageStatus({ ...imageStatus, isLoading: true })}
                 onChange={(e) => handleImageChange(e, 'image')}
                 onBlur={() => setImageStatus({ ...imageStatus, focused: true })}
               />
-              {(imageStatus.focused || isSubmitted) && !imageStatus.path && (
-                <p style={{ color: 'red' }}>Imagen es Requerida</p>
+              {(imageStatus.focused || isSubmitted) && !imageStatus.isLoading && !imageStatus.path && (
+                <p style={{ color: 'red' }}>Image is required</p>
               )}
             </div>
             {imageStatus.path && (
               <div className="mt-4">
                 <img
                   src={imageStatus.path}
+                  onLoad={() => setImageStatus({ ...imageStatus, isLoading: false })}
                   style={{ cursor: 'pointer' }}
                   alt="Blog Image"
                   className="max-h-48 rounded-lg"
@@ -193,18 +190,20 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
                 id="thumbnail"
                 accept="image/*"
                 style={{ cursor: 'pointer' }}
-                className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                onClick={() => setThumbStatus({ ...thumbStatus, isLoading: true })}
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 onChange={(e) => handleImageChange(e, 'thumbnail')}
                 onBlur={() => setThumbStatus({ ...thumbStatus, focused: true })}
               />
-              {(thumbStatus.focused || isSubmitted) && !thumbStatus.path && (
-                <p style={{ color: 'red' }}>Thumbnail es Requerido</p>
+              {(thumbStatus.focused || isSubmitted) && !thumbStatus.isLoading && !thumbStatus.path && (
+                <p style={{ color: 'red' }}>Thumbnail is required</p>
               )}
             </div>
             {thumbStatus.path && (
               <div className="mt-4">
                 <img
                   src={thumbStatus.path}
+                  onLoad={() => setThumbStatus({ ...thumbStatus, isLoading: false })}
                   style={{ cursor: 'pointer' }}
                   alt="Thumb Image"
                   className="max-h-48 rounded-lg"
@@ -226,7 +225,7 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
                 {...register('status_id')}
                 name="status_id"
                 id="status_id"
-                className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm">
                 {statusList?.map((x) => (
                   <option key={x.value} value={x.value}>
                     {x.text}
@@ -253,9 +252,10 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
                 {...register('slug')}
                 type="text"
                 name="slug"
+                autoComplete="off"
                 id="slug"
                 placeholder="Slug"
-                className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
               {errors.slug && <p style={{ color: 'red' }}>{errors.slug.message}</p>}
             </div>
@@ -268,10 +268,11 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
               <input
                 {...register('seo_title')}
                 type="text"
+                autoComplete="off"
                 name="seo_title"
                 id="seo_title"
                 placeholder="SEO Title"
-                className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
               {errors.seo_title && <p style={{ color: 'red' }}>{errors.seo_title.message}</p>}
             </div>
@@ -286,7 +287,7 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
                 name="seo_description"
                 id="seo_description"
                 placeholder="SEO Description"
-                className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
               {errors.seo_description && <p style={{ color: 'red' }}>{errors.seo_description.message}</p>}
             </div>
@@ -299,10 +300,11 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
               <input
                 {...register('medium_url')}
                 type="url"
+                autoComplete="off"
                 name="medium_url"
                 id="medium_url"
                 placeholder="Medium URL"
-                className="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
               {errors.medium_url && <p style={{ color: 'red' }}>{errors.medium_url.message}</p>}
             </div>
@@ -319,7 +321,7 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
                 name="preview"
                 id="preview"
                 placeholder="Preview"
-                className="block w-full min-h-[9.2rem] h-auto px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="block w-full min-h-[9.2rem] h-auto px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
               {errors.preview && <p style={{ color: 'red' }}>{errors.preview.message}</p>}
             </div>
