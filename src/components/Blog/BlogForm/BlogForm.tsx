@@ -8,13 +8,21 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { HtmlEditor } from '@/components'
 import { BlogStatus, ImageStatus } from './BlogForm.types'
 import { BlogDialogSchema } from './BlogForm.validations'
-import { removeFile, uploadFile } from '@/server'
+import { removeFile, savePost, uploadFile } from '@/server'
+import { toast } from 'react-hot-toast'
 
 type FormData = z.infer<typeof BlogDialogSchema>
+
+//TODO:
+// 1. Letter has to be white
+// 2. Image error is showing even when the image is uploading
+// 3. Disabled Autocomplete on inputs
+//
 
 export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
   const [imageStatus, setImageStatus] = useState<ImageStatus>({ focused: false, path: '' })
   const [thumbStatus, setThumbStatus] = useState<ImageStatus>({ focused: false, path: '' })
+  const [contentFocused, setContentFocused] = useState<boolean>(false)
   const imageRef = useRef<HTMLInputElement>(null)
   const thumbRef = useRef<HTMLInputElement>(null)
 
@@ -26,8 +34,12 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
     }
   }
 
+  const handleContentFocus = () => {
+    setContentFocused(true)
+  }
+
   const handleContentChange = (value: string) => {
-    setValue('content', value, { shouldValidate: true })
+    if (contentFocused) setValue('content', value, { shouldValidate: true })
   }
 
   const handleImageRespondeCallback = (fullPath: string | null, imageType: 'image' | 'thumbnail') => {
@@ -61,6 +73,7 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
     register,
     handleSubmit,
     setValue,
+    reset,
     control,
     formState: { errors, isSubmitted },
   } = useForm<FormData>({
@@ -79,7 +92,24 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
       // Asegúrate de transformar cualquier otro campo necesario aquí
     }
 
-    console.log('On Submit', postData)
+    savePost(postData)
+      .then((success) => {
+        if (success) {
+          toast.success('Post Saved!')
+          handleRemoveImage('image')
+          handleRemoveImage('thumbnail')
+          setImageStatus({ focused: false, path: '' })
+          setThumbStatus({ focused: false, path: '' })
+          reset(undefined, { keepDirtyValues: false, keepIsSubmitted: false, keepErrors: false, keepValues: false })
+          setContentFocused(false)
+        } else {
+          toast.error('Post not saved!')
+        }
+      })
+      .catch((error) => {
+        console.error('Error saving post:', error)
+        toast.error('You Fail!')
+      })
   }
 
   return (
@@ -302,9 +332,16 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
               <Controller
                 name="content"
                 control={control}
-                render={({ field }) => <HtmlEditor {...field} placeholder="Body" onChange={handleContentChange} />}
+                render={({ field }) => (
+                  <HtmlEditor
+                    {...field}
+                    placeholder="Body"
+                    onChange={handleContentChange}
+                    onFocus={handleContentFocus}
+                  />
+                )}
               />
-              {errors.content && <p style={{ color: 'red' }}>{'Content is Required'}</p>}
+              {errors.content && contentFocused && <p style={{ color: 'red' }}>{'Content is Required'}</p>}
             </div>
           </div>
         </div>

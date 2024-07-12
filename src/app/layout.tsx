@@ -6,6 +6,7 @@ import './globals.css'
 import { getServerUser, isServerUserAdmin } from '@/app/actions'
 import { Footer, Navbar } from '@/components'
 import { SessionProvider } from '@/components'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,6 +28,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <SessionProvider serverSessionUser={user} isServerUserAdmin={isAdmin}>
           <Navbar />
+          <Toaster position="top-right" />
           {children}
           <Footer />
         </SessionProvider>

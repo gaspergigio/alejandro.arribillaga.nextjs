@@ -76,4 +76,16 @@ async function removeFile(fullUrl: string) {
   return true
 }
 
-export { signInOAuth, signOut, getUser, isUserAdmin, uploadFile, removeFile }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function savePost(postData: any) {
+  const supabase = getClient()
+  const { error } = await supabase.from('Blog').insert([postData])
+
+  if (error) {
+    console.error('Error inserting into Supabase', error)
+    return false
+  }
+  return true
+}
+
+export { signInOAuth, signOut, getUser, isUserAdmin, uploadFile, removeFile, savePost }

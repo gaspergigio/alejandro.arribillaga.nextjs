@@ -36,10 +36,12 @@ const quillFormats = [
 const HtmlEditor = ({
   value,
   onChange,
+  onFocus,
   placeholder,
 }: {
   value: string
   onChange: (value: string) => void
+  onFocus?: () => void
   placeholder?: string
 }) => {
   return (
@@ -47,6 +49,7 @@ const HtmlEditor = ({
       className="ring-1 ring-white/10 dark:border-zinc-300 border-zinc-300 rounded-md text-zinc-500 dark:text-white text-sm"
       value={value}
       onChange={onChange}
+      onFocus={onFocus}
       modules={quillModules}
       formats={quillFormats}
       placeholder={placeholder}
