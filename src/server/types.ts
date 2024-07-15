@@ -11,8 +11,8 @@ export default interface IPost {
   seo_title?: string
   preview?: string
   published_date: string
-  img_path?: string
-  thumb_path?: string
+  img_path: string
+  thumb_path: string
   Entity: {
     name: string
   }

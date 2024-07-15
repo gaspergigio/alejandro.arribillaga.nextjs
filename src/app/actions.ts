@@ -114,7 +114,6 @@ async function getBlogStatus() {
 async function getPostList() {
   const supabase = await getServerSupabase()
 
-  //where published_date es menor a la fecha actual
   const { data, error } = await supabase
     .from('Blog')
     .select(
@@ -134,4 +133,26 @@ async function getPostList() {
   return data as IPost[]
 }
 
-export { getServerSupabase, isServerUserAdmin, getServerUser, getBlogStatus, getPostList }
+async function getPostBySlug(slug: string) {
+  const supabase = await getServerSupabase()
+
+  const { data, error } = await supabase
+    .from('Blog')
+    .select(
+      `
+      *,
+      Entity:status_id (name)
+    `
+    )
+    .eq('slug', slug)
+
+  if (error) {
+    console.error('Error fetching data:', error)
+    return null
+  }
+
+  const list = data as IPost[]
+  return list.length > 0 ? list[0] : null
+}
+
+export { getServerSupabase, isServerUserAdmin, getServerUser, getBlogStatus, getPostList, getPostBySlug }

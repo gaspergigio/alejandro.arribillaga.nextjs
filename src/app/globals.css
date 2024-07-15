@@ -93,6 +93,74 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
+  margin-top: 1rem !important;
+}
+
+.postContent {
+  h1,
+  h2,
+  h3 {
+    margin-top: 2rem !important;
+  }
+
+  h4,
+  h5,
+  h6 {
+    margin-top: 1rem !important;
+  }
+
+  h1 {
+    font-size: 34px;
+    font-family: 'Arial';
+  }
+
+  h2 {
+    font-size: 28px;
+    font-family: 'Arial';
+  }
+
+  h3 {
+    font-size: 24px;
+    font-family: 'Arial';
+  }
+
+  h4 {
+    font-size: 20px;
+    font-family: 'Arial';
+  }
+
+  h5 {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Arial';
+  }
+
+  h6 {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Arial';
+  }
+
+  ul {
+    list-style-type: disc !important;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  pre {
+    background-color: rgb(241, 243, 244);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    overflow-x: auto;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+  }
 }
 
 a {
@@ -346,7 +414,7 @@ video {
   --tw-backdrop-invert: ;
   --tw-backdrop-opacity: ;
   --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia:                                                                                         
+  --tw-backdrop-sepia:                                                                                                                       
 ;
 }
 
@@ -397,7 +465,7 @@ video {
   --tw-backdrop-invert: ;
   --tw-backdrop-opacity: ;
   --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia:                                                                                         
+  --tw-backdrop-sepia:                                                                                                                       
 ;
 }
 
