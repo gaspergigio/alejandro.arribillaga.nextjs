@@ -3,6 +3,7 @@
 import { cookies } from 'next/headers'
 
 import { type CookieOptions, createServerClient } from '@supabase/ssr'
+import IPost from '@/server/types'
 
 async function getServerSupabase() {
   const cookieStore = cookies()
@@ -110,4 +111,27 @@ async function getBlogStatus() {
   }))
 }
 
-export { getServerSupabase, isServerUserAdmin, getServerUser, getBlogStatus }
+async function getPostList() {
+  const supabase = await getServerSupabase()
+
+  //where published_date es menor a la fecha actual
+  const { data, error } = await supabase
+    .from('Blog')
+    .select(
+      `
+      *,
+      Entity:status_id (name)
+    `
+    )
+    .lte('published_date', new Date().toISOString())
+    .order('published_date', { ascending: false })
+
+  if (error) {
+    console.error('Error fetching data:', error)
+    return null
+  }
+
+  return data as IPost[]
+}
+
+export { getServerSupabase, isServerUserAdmin, getServerUser, getBlogStatus, getPostList }

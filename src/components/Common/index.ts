@@ -1,5 +1,6 @@
 export * from './Editor'
 export * from './Footer'
+export * from './FullMessage'
 export * from './Navbar'
 export * from './Portfolio'
 export * from './PostCard'

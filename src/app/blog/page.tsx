@@ -1,8 +1,12 @@
 import React from 'react'
-import TechImage from '@/assets/technology/JavascriptLogo.png'
-import { PostCard, Posts } from '@/components'
+import { FullMessage, PostCard, Posts } from '@/components'
+import { getPostList } from '../actions'
+import CommingSoon from '@/assets/comming-soon.png'
+
+//TODO: Avanzar aqui con la creacion de la pagina de blog tomada desde supabase
 
 export default async function Page() {
+  const blogList = await getPostList()
   return (
     <main>
       <section>
@@ -17,63 +21,26 @@ export default async function Page() {
                   date in the world of software development.
                 </p>
               }>
-              <PostCard
-                title="Meet AutoManage, the best AI management tools"
-                slug="meet-automanage-the-best-ai-management-tools"
-                imgSrc={TechImage.src}
-                publishDate={new Date()}>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy
-                  text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </PostCard>
-              <PostCard
-                title=" How to earn more money as a wellness coach"
-                slug="how-to-earn-more-money-as-a-wellness-coach"
-                imgSrc={TechImage.src}
-                publishDate={new Date()}>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </p>
-              </PostCard>
-              <PostCard
-                title=" How to earn more money as a wellness coach"
-                slug="how-to-earn-more-money-as-a-wellness-coach-2"
-                imgSrc={TechImage.src}
-                publishDate={new Date()}>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </p>
-              </PostCard>
-              <PostCard
-                title=" How to earn more money as a wellness coach"
-                slug="how-to-earn-more-money-as-a-wellness-coach-2"
-                imgSrc={TechImage.src}
-                publishDate={new Date()}>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </p>
-              </PostCard>
-              <PostCard
-                title=" How to earn more money as a wellness coach"
-                slug="how-to-earn-more-money-as-a-wellness-coach-2"
-                imgSrc={TechImage.src}
-                publishDate={new Date()}>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </p>
-              </PostCard>
-              <PostCard
-                title=" How to earn more money as a wellness coach"
-                slug="how-to-earn-more-money-as-a-wellness-coach-2"
-                imgSrc={TechImage.src}
-                publishDate={new Date()}>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </p>
-              </PostCard>
+              {blogList &&
+                blogList.map((post) => (
+                  <PostCard
+                    key={post.id}
+                    title={post.title}
+                    slug={post.slug}
+                    imgSrc={post.thumb_path}
+                    publishDate={new Date(post.published_date)}>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400">{post.preview}</p>
+                  </PostCard>
+                ))}
             </Posts>
+            {blogList?.length === 0 && (
+              <FullMessage
+                imgSrc={CommingSoon.src}
+                title="Comming Soon"
+                description="In this page I will add some sample applications developed in my spare time for personal use. You can
+                  use them if you wish."
+              />
+            )}
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { BlogAddButton } from '@/components'
-import { CircularProgress } from '@nextui-org/react'
+/* import { CircularProgress } from '@nextui-org/react' */
 
 import { PostsProps } from './Posts.types'
 
@@ -21,11 +21,12 @@ export default function Posts({ isFeatured, title, description, children }: Post
       <section className="pt-4 lg:pt-10 lg:pb-8 dark:ring-white/10">
         <div className={`${isFeatured ? 'container' : ''} mx-auto`}>
           <div className="flex flex-wrap -mx-8">{modifiedChildren}</div>
-          {!isFeatured && (
+          {/* TODO: Cuando se haga la paginacion debo agregar el siguiente codigo */}
+          {/*           {!isFeatured && (
             <div className="flex justify-center">
               <CircularProgress color="default" aria-label="Loading..." />
             </div>
-          )}
+          )} */}
         </div>
       </section>
     </div>
