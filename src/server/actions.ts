@@ -48,7 +48,9 @@ function getClient() {
 async function uploadFile(file: File) {
   const supabase = getClient()
   //get filename without extension
-  const [fileName, extension] = file.name.split('.')
+  const lastIndex = file.name.lastIndexOf('.')
+  const fileName = file.name.substring(0, lastIndex)
+  const extension = file.name.substring(lastIndex + 1)
   //get timestamp in milliseconds
   const timestamp = new Date().getTime()
   const { data, error } = await supabase.storage

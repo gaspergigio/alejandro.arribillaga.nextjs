@@ -8,7 +8,7 @@ export default async function page({ params }: { params: { slug: string } }) {
   return (
     <>
       {post && (
-        <DetailHero imgSrc={post.thumb_path} title={post.title}>
+        <DetailHero imgSrc={post.img_path} title={post.title}>
           {post.seo_description ?? ''}
         </DetailHero>
       )}

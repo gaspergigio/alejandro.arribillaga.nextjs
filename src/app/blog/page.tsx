@@ -32,15 +32,15 @@ export default async function Page() {
                     <p className="text-sm text-zinc-500 dark:text-zinc-400">{post.preview}</p>
                   </PostCard>
                 ))}
-            </Posts>
-            {blogList?.length === 0 && (
-              <FullMessage
-                imgSrc={CommingSoon.src}
-                title="Comming Soon"
-                description="In this page I will add some sample applications developed in my spare time for personal use. You can
+              {blogList?.length === 0 && (
+                <FullMessage
+                  imgSrc={CommingSoon.src}
+                  title="Comming Soon"
+                  description="In this page I will add some sample applications developed in my spare time for personal use. You can
                   use them if you wish."
-              />
-            )}
+                />
+              )}
+            </Posts>
           </div>
         </div>
       </section>

@@ -50,15 +50,15 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
     }
   }
 
-  const handleRemoveImage = (imageType: 'image' | 'thumbnail') => {
+  const handleRemoveImage = (imageType: 'image' | 'thumbnail', isReseting: boolean = false) => {
     setImage(imageType, '')
     //reset the input file
     if (imageType === 'image') {
-      removeFile(imageStatus.path)
+      if (!isReseting) removeFile(imageStatus.path)
       if (imageRef.current) imageRef.current.value = ''
     }
     if (imageType === 'thumbnail') {
-      removeFile(thumbStatus.path)
+      if (!isReseting) removeFile(thumbStatus.path)
       if (thumbRef.current) thumbRef.current.value = ''
     }
   }
@@ -83,15 +83,14 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
       ...data,
       img_path: imageStatus.path,
       thumb_path: thumbStatus.path,
-      // Asegúrate de transformar cualquier otro campo necesario aquí
     }
 
     savePost(postData)
       .then((success) => {
         if (success) {
           toast.success('Post Saved!')
-          handleRemoveImage('image')
-          handleRemoveImage('thumbnail')
+          handleRemoveImage('image', true)
+          handleRemoveImage('thumbnail', true)
           setImageStatus({ focused: false, path: '', isLoading: false })
           setThumbStatus({ focused: false, path: '', isLoading: false })
           reset(undefined, { keepDirtyValues: false, keepIsSubmitted: false, keepErrors: false, keepValues: false })
