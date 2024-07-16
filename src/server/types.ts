@@ -1,4 +1,6 @@
 //escribe una interface en typescript llamada post
+export const PAGE_SIZE = 30
+
 export default interface IPost {
   id?: number
   title: string
@@ -17,4 +19,9 @@ export default interface IPost {
   Entity: {
     name: string
   }
+}
+
+export interface IPostList {
+  data: IPost[] | null
+  total: number
 }

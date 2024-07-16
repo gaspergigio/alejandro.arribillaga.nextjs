@@ -2,6 +2,13 @@ import React from 'react'
 
 import CommingSoon from '@/assets/comming-soon.png'
 import { FullMessage } from '@/components'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Apps | Alejandro Arribillaga | FrontEnd Engineer',
+  description:
+    'Conoce las aplicaciones que he desarrollado. Desde herramientas útiles hasta experiencias interactivas, explora cómo mis aplicaciones pueden hacer tu vida más fácil y entretenida.',
+}
 
 export default function Page() {
   return (

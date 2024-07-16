@@ -1,5 +1,12 @@
 import React from 'react'
 import { Portfolio } from '@/components'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Portfolio | Alejandro Arribillaga | FrontEnd Engineer',
+  description:
+    'Explora mi portfolio de proyectos FrontEnd. Desde aplicaciones web modernas hasta soluciones interactivas, descubre cómo mis habilidades y creatividad han dado vida a diversas ideas y retos.',
+}
 
 export default function Page() {
   return (

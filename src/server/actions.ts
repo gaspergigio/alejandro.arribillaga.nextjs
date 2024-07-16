@@ -1,4 +1,5 @@
 import { createBrowserClient } from '@supabase/ssr'
+import IPost, { IPostList, PAGE_SIZE } from './types'
 
 async function signInOAuth() {
   const supabase = getClient()
@@ -90,4 +91,44 @@ async function savePost(postData: any) {
   return true
 }
 
-export { signInOAuth, signOut, getUser, isUserAdmin, uploadFile, removeFile, savePost }
+async function getClientPostList(pageNumber: number) {
+  const supabase = getClient()
+  return getPostList(supabase, pageNumber)
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function getPostList(supabase: any, pageNumber: number): Promise<IPostList> {
+  const from = (pageNumber - 1) * PAGE_SIZE
+  const to = from + PAGE_SIZE - 1
+
+  const { data, error } = await supabase
+    .from('Blog')
+    .select(
+      `
+      *,
+      Entity:status_id (name)
+    `
+    )
+    .lte('published_date', new Date().toISOString())
+    .order('published_date', { ascending: false })
+    .range(from, to)
+
+  if (error) {
+    console.error('Error fetching data:', error)
+    return { data: null, total: 0 }
+  }
+
+  const { count, error: countError } = await supabase
+    .from('Blog')
+    .select('id', { count: 'exact', head: true })
+    .lte('published_date', new Date().toISOString())
+
+  if (countError) {
+    console.error('Error fetching total count:', countError)
+    return { data: null, total: 0 }
+  }
+
+  return { data: data as IPost[], total: count }
+}
+
+export { signInOAuth, signOut, getUser, isUserAdmin, uploadFile, removeFile, savePost, getPostList, getClientPostList }
