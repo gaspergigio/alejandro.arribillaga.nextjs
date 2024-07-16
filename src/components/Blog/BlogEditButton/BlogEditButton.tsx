@@ -12,7 +12,7 @@ export default function BlogEditButton({ slug }: { slug: string }) {
   const router = useRouter()
   const handleOnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     router.push(`/blog/${slug}/edit`)
-    event.stopPropagation()
+    event.preventDefault()
   }
 
   if (!isAdmin) return <></>

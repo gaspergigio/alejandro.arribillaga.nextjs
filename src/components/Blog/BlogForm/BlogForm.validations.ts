@@ -2,6 +2,7 @@ import { removeHTML } from '@/utils'
 import { z } from 'zod'
 
 export const BlogDialogSchema = z.object({
+  id: z.number().int().optional(),
   seo_description: z.string().min(1, { message: 'SEO Description is required' }),
   medium_url: z.string().url({ message: 'Must be a valid URL' }).optional(),
   status_id: z.string().min(1, { message: 'Status is required' }),

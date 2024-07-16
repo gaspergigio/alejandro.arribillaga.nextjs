@@ -152,7 +152,7 @@ async function getPostBySlug(slug: string) {
   }
 
   const list = data as IPost[]
-  return list.length > 0 ? list[0] : null
+  return list.length > 0 ? list[0] : undefined
 }
 
 export { getServerSupabase, isServerUserAdmin, getServerUser, getBlogStatus, getPostList, getPostBySlug }

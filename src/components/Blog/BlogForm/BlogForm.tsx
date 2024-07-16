@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -10,15 +10,18 @@ import { BlogStatus, ImageStatus } from './BlogForm.types'
 import { BlogDialogSchema } from './BlogForm.validations'
 import { removeFile, savePost, uploadFile } from '@/server'
 import { toast } from 'react-hot-toast'
+import IPost from '@/server/types'
+import { useRouter } from 'next/navigation'
 
 type FormData = z.infer<typeof BlogDialogSchema>
 
-export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
+export default function BlogForm({ statusList, post }: { statusList: BlogStatus[]; post?: IPost }) {
   const [imageStatus, setImageStatus] = useState<ImageStatus>({ focused: false, path: '', isLoading: false })
   const [thumbStatus, setThumbStatus] = useState<ImageStatus>({ focused: false, path: '', isLoading: false })
   const [contentFocused, setContentFocused] = useState<boolean>(false)
   const imageRef = useRef<HTMLInputElement>(null)
   const thumbRef = useRef<HTMLInputElement>(null)
+  const router = useRouter()
 
   const setImage = (imageType: 'image' | 'thumbnail', path: string) => {
     if (imageType === 'image') {
@@ -52,7 +55,6 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
 
   const handleRemoveImage = (imageType: 'image' | 'thumbnail', isReseting: boolean = false) => {
     setImage(imageType, '')
-    //reset the input file
     if (imageType === 'image') {
       if (!isReseting) removeFile(imageStatus.path)
       if (imageRef.current) imageRef.current.value = ''
@@ -89,6 +91,7 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
       .then((success) => {
         if (success) {
           toast.success('Post Saved!')
+          if (postData.id) router.push(`/blog`)
           handleRemoveImage('image', true)
           handleRemoveImage('thumbnail', true)
           setImageStatus({ focused: false, path: '', isLoading: false })
@@ -104,6 +107,18 @@ export default function BlogForm({ statusList }: { statusList: BlogStatus[] }) {
         toast.error('You Fail!')
       })
   }
+
+  useEffect(() => {
+    if (post) {
+      reset(post)
+      if (post.img_path) {
+        setImageStatus({ focused: true, path: post.img_path, isLoading: false })
+      }
+      if (post.thumb_path) {
+        setThumbStatus({ focused: true, path: post.thumb_path, isLoading: false })
+      }
+    }
+  }, [post, reset])
 
   return (
     <form className="w-full" onSubmit={handleSubmit(onSubmit)}>

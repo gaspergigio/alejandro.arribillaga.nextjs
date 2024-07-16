@@ -81,7 +81,7 @@ async function removeFile(fullUrl: string) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function savePost(postData: any) {
   const supabase = getClient()
-  const { error } = await supabase.from('Blog').insert([postData])
+  const { error } = await supabase.from('Blog').upsert([postData])
 
   if (error) {
     console.error('Error inserting into Supabase', error)

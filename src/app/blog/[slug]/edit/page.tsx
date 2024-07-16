@@ -1,13 +1,16 @@
 import React from 'react'
 import { BlogForm } from '@/components'
-import { isServerUserAdmin } from '@/app/actions'
+import { getBlogStatus, getPostBySlug, isServerUserAdmin } from '@/app/actions'
 import { redirect } from 'next/navigation'
 
-export default async function page() {
+export default async function page({ params }: { params: { slug: string } }) {
+  const slug = params.slug as string
+  const post = await getPostBySlug(slug)
+  const blogStatus = await getBlogStatus()
   const isUserAdmin = await isServerUserAdmin()
-  if (!isUserAdmin) {
-    redirect('/')
-  }
+  if (!isUserAdmin) redirect('/')
+  if (post === null) redirect('/blog')
+
   return (
     <section>
       <div className="flex flex-col items-center p-4">
@@ -19,7 +22,7 @@ export default async function page() {
                 Edit a Post
               </p>
             </div>
-            <BlogForm />
+            <BlogForm statusList={blogStatus ?? []} post={post} />
           </div>
         </div>
       </div>
