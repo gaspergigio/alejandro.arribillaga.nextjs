@@ -25,6 +25,7 @@ export default function BlogForm({ statusList, post }: { statusList: BlogStatus[
   const [imageStatus, setImageStatus] = useState<ImageStatus>({ focused: false, path: '', isLoading: false })
   const [thumbStatus, setThumbStatus] = useState<ImageStatus>({ focused: false, path: '', isLoading: false })
   const [contentFocused, setContentFocused] = useState<boolean>(false)
+  const [tech, setTech] = useState(new Set(post?.tags?.split(',') ?? []))
   const imageRef = useRef<HTMLInputElement>(null)
   const thumbRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
@@ -367,6 +368,8 @@ export default function BlogForm({ statusList, post }: { statusList: BlogStatus[
                 {...register('tags')}
                 className="bg-zinc-100 dark:bg-tertiary text-white ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 selectionMode="multiple"
+                selectedKeys={tech}
+                onSelectionChange={(value: any) => setTech(value)}
                 color={'default'}
                 labelPlacement="outside"
                 variant="flat"
