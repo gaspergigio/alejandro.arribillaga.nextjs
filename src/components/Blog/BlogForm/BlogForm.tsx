@@ -12,7 +12,9 @@ import { z } from 'zod'
 import { HtmlEditor } from '@/components'
 import { removeFile, savePost, uploadFile } from '@/server'
 import IPost from '@/server/types'
+import { techList } from '@/utils/techList'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Select, SelectItem } from '@nextui-org/react'
 
 import { BlogStatus, ImageStatus } from './BlogForm.types'
 import { BlogDialogSchema } from './BlogForm.validations'
@@ -147,6 +149,23 @@ export default function BlogForm({ statusList, post }: { statusList: BlogStatus[
             </div>
           </div>
           <div className="mb-4">
+            <label htmlFor="en_title" className="text-base font-medium text-white">
+              Title (EN)
+            </label>
+            <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+              <input
+                {...register('en_title')}
+                type="text"
+                autoComplete="off"
+                name="en_title"
+                id="en_title"
+                placeholder="Title (EN)"
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              />
+              {errors.en_title && <p style={{ color: 'red' }}>{errors.en_title.message}</p>}
+            </div>
+          </div>
+          <div className="mb-4">
             <label htmlFor="published_date" className="text-base font-medium text-white">
               Published Date
             </label>
@@ -239,25 +258,19 @@ export default function BlogForm({ statusList, post }: { statusList: BlogStatus[
             <label htmlFor="status_id" className="text-base font-medium text-white">
               Status
             </label>
-            <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
-              <select
-                {...register('status_id')}
-                name="status_id"
-                id="status_id"
-                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                {statusList?.map((x) => (
-                  <option key={x.value} value={x.value}>
-                    {x.text}
-                  </option>
-                ))}
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                </svg>
-              </div>
-              {errors.status_id && <p style={{ color: 'red' }}>{errors.status_id.message}</p>}
-            </div>
+            <Select
+              {...register('status_id')}
+              className="bg-zinc-100 dark:bg-tertiary text-white ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              color={'default'}
+              labelPlacement="outside"
+              variant="flat"
+              aria-label="Status"
+              placeholder="Status">
+              {statusList.map((x) => (
+                <SelectItem key={x.value}>{x.text}</SelectItem>
+              ))}
+            </Select>
+            {errors.status_id && <p style={{ color: 'red' }}>{errors.status_id.message}</p>}
           </div>
 
           <div className="mb-4">
@@ -311,7 +324,7 @@ export default function BlogForm({ statusList, post }: { statusList: BlogStatus[
               {errors.seo_description && <p style={{ color: 'red' }}>{errors.seo_description.message}</p>}
             </div>
           </div>
-          <div>
+          <div className="mb-4">
             <label htmlFor="medium_url" className="text-base font-medium text-white">
               Medium URL
             </label>
@@ -326,6 +339,44 @@ export default function BlogForm({ statusList, post }: { statusList: BlogStatus[
                 className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
               />
               {errors.medium_url && <p style={{ color: 'red' }}>{errors.medium_url.message}</p>}
+            </div>
+          </div>
+          <div className="mb-4">
+            <label htmlFor="youtube_url" className="text-base font-medium text-white">
+              Youtube URL
+            </label>
+            <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+              <input
+                {...register('youtube_url')}
+                type="url"
+                autoComplete="off"
+                name="youtube_url"
+                id="youtube_url"
+                placeholder="Medium URL"
+                className="block w-full h-12 px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              />
+              {errors.youtube_url && <p style={{ color: 'red' }}>{errors.youtube_url.message}</p>}
+            </div>
+          </div>
+          <div>
+            <label htmlFor="status_id" className="text-base font-medium text-white">
+              Tech Tags
+            </label>
+            <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+              <Select
+                {...register('tags')}
+                className="bg-zinc-100 dark:bg-tertiary text-white ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                selectionMode="multiple"
+                color={'default'}
+                labelPlacement="outside"
+                variant="flat"
+                aria-label="Tech Tags"
+                placeholder="Select an Technology">
+                {techList.map((tech) => (
+                  <SelectItem key={tech.key}>{tech.label}</SelectItem>
+                ))}
+              </Select>
+              {errors.tags && <p style={{ color: 'red' }}>{errors.tags.message}</p>}
             </div>
           </div>
         </div>
@@ -345,6 +396,21 @@ export default function BlogForm({ statusList, post }: { statusList: BlogStatus[
               {errors.preview && <p style={{ color: 'red' }}>{errors.preview.message}</p>}
             </div>
           </div>
+          <div className="mb-4">
+            <label htmlFor="en_preview" className="text-base font-medium text-white">
+              Preview (EN)
+            </label>
+            <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+              <textarea
+                {...register('en_preview')}
+                name="en_preview"
+                id="en_preview"
+                placeholder="Preview (EN)"
+                className="block w-full min-h-[9.2rem] h-auto px-4 py-2 text-sm text-white bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              />
+              {errors.en_preview && <p style={{ color: 'red' }}>{errors.en_preview.message}</p>}
+            </div>
+          </div>
           <div className="flex-1 pb-8">
             <label htmlFor="body" className="text-base font-medium text-white">
               Body
@@ -353,9 +419,9 @@ export default function BlogForm({ statusList, post }: { statusList: BlogStatus[
               <Controller
                 name="content"
                 control={control}
-                render={({ field }) => (
+                render={({ field: { value } }) => (
                   <HtmlEditor
-                    {...field}
+                    value={value}
                     placeholder="Body"
                     onChange={handleContentChange}
                     onFocus={handleContentFocus}
