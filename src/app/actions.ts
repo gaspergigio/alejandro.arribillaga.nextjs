@@ -2,9 +2,9 @@
 'use server'
 import { cookies } from 'next/headers'
 
-import { type CookieOptions, createServerClient } from '@supabase/ssr'
-import IPost from '@/server/types'
 import { getPostList } from '@/server/actions'
+import IPost from '@/server/types'
+import { type CookieOptions, createServerClient } from '@supabase/ssr'
 
 async function getServerSupabase() {
   const cookieStore = cookies()
@@ -33,6 +33,7 @@ async function getServerUser() {
   const { data, error } = await supabase.auth.getUser()
 
   if (error || !data.user) {
+    // eslint-disable-next-line no-console
     console.warn('Invalid session cookie detected, clearing session cookie', error, !data.user)
     const cookieStore = cookies()
     const cookiesList = cookieStore.getAll()
@@ -61,6 +62,7 @@ async function isServerUserAdmin() {
     .eq('Entity.name', 'SuperAdmin')
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching user roles:', error)
     return false
   }
@@ -73,11 +75,13 @@ async function getBlogStatusType() {
   const { data, error } = await supabase.from('EntityType').select('id').eq('name', 'Blog Status')
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching EntityType data:', error)
     return null
   }
 
   if (!data || data.length === 0) {
+    // eslint-disable-next-line no-console
     console.log('No EntityType found with name "Blog Status"')
     return null
   }
@@ -100,6 +104,7 @@ async function getBlogStatus() {
     .eq('entity_type_id', blogStatusId)
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching data:', error)
     return null
   }
@@ -131,6 +136,7 @@ async function getPostBySlug(slug: string) {
     .eq('slug', slug)
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching data:', error)
     return null
   }

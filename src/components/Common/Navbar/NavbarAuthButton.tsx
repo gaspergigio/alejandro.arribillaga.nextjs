@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Tooltip } from '@nextui-org/tooltip'
 import { User } from '@supabase/supabase-js'
 
@@ -6,10 +7,14 @@ export default function NavbarAuthButton({
   user,
   handleClick,
   disabled,
+  loginTxt,
+  logoutTxt,
 }: {
   user: User | null
   handleClick: () => void
   disabled: boolean
+  loginTxt: string
+  logoutTxt: string
 }) {
   return (
     <Tooltip content={user === null ? 'Sign in' : 'Sign out'} color="primary">
@@ -17,7 +22,7 @@ export default function NavbarAuthButton({
         type="button"
         disabled={disabled}
         onClick={handleClick}
-        className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2">
+        className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2">
         <svg
           className="w-4 h-4 me-2"
           aria-hidden="true"
@@ -50,9 +55,9 @@ export default function NavbarAuthButton({
             <span className="sr-only">Loading...</span>
           </div>
         ) : user === null ? (
-          'Sign in with Github'
+          loginTxt
         ) : (
-          'Sign out'
+          logoutTxt
         )}
       </button>
     </Tooltip>

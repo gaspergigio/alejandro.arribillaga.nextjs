@@ -17,6 +17,7 @@
     "@tabler/icons-react": "^3.3.0",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.1.8",
+    "js-cookie": "^3.0.5",
     "next": "14.2.3",
     "quill": "^2.0.2",
     "react": "^18",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.1.1",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -1,7 +1,10 @@
 import React from 'react'
-import { BlogForm } from '@/components'
-import { isServerUserAdmin, getBlogStatus } from '@/app/actions'
+
 import { redirect } from 'next/navigation'
+
+import { isServerUserAdmin, getBlogStatus } from '@/app/actions'
+import { BlogForm } from '@/components'
+
 export default async function page() {
   const isUserAdmin = await isServerUserAdmin()
   if (!isUserAdmin) {

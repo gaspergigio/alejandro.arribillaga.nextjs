@@ -1,7 +1,9 @@
 import React from 'react'
-import { BlogForm } from '@/components'
-import { getBlogStatus, getPostBySlug, isServerUserAdmin } from '@/app/actions'
+
 import { redirect } from 'next/navigation'
+
+import { getBlogStatus, getPostBySlug, isServerUserAdmin } from '@/app/actions'
+import { BlogForm } from '@/components'
 
 export default async function page({ params }: { params: { slug: string } }) {
   const slug = params.slug as string

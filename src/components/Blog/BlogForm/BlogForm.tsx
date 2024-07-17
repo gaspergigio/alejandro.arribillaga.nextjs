@@ -1,17 +1,21 @@
+/* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import { toast } from 'react-hot-toast'
+
+import { useRouter } from 'next/navigation'
 import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
 
 import { HtmlEditor } from '@/components'
+import { removeFile, savePost, uploadFile } from '@/server'
+import IPost from '@/server/types'
+import { zodResolver } from '@hookform/resolvers/zod'
+
 import { BlogStatus, ImageStatus } from './BlogForm.types'
 import { BlogDialogSchema } from './BlogForm.validations'
-import { removeFile, savePost, uploadFile } from '@/server'
-import { toast } from 'react-hot-toast'
-import IPost from '@/server/types'
-import { useRouter } from 'next/navigation'
 
 type FormData = z.infer<typeof BlogDialogSchema>
 
@@ -103,6 +107,7 @@ export default function BlogForm({ statusList, post }: { statusList: BlogStatus[
         }
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error('Error saving post:', error)
         toast.error('You Fail!')
       })

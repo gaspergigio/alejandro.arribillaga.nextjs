@@ -1,5 +1,7 @@
-import { removeHTML } from '@/utils'
+/* eslint-disable camelcase */
 import { z } from 'zod'
+
+import { removeHTML } from '@/utils'
 
 export const BlogDialogSchema = z.object({
   id: z.number().int().optional(),

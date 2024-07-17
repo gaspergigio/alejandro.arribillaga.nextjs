@@ -1,15 +1,16 @@
 import React from 'react'
+
 import { Tooltip } from '@nextui-org/tooltip'
 
 import { skillsData } from './SkillsData'
 
-export default function Skills() {
+export default function Skills({ t }: { t: (key: string) => string }) {
   return (
     <div className="ring-1 dark:ring-white/10 ring-primary/5 flex flex-col p-8 h-full justify-center items-center rounded-3xl overflow-hidden relative lg:col-span-2 lg:row-start-4 bg-white dark:bg-secondary shadow-xl dark:shadow-thick">
       <div className="w-full">
-        <p className="text-xl text-primary dark:text-white lg:text-7xl tracking-tight">Skills</p>
+        <p className="text-xl text-primary dark:text-white lg:text-7xl tracking-tight">{t('Home.Skills.Title')}</p>
         <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">
-          Below is a list of some of the technologies I have worked with or have previous experience with:
+          {t('Home.Skills.Paragraph')}
         </p>
       </div>
       <div className="grid mt-8 grid-cols-6 lg:grid-cols-6 xl:grid-cols-12 gap-y-4 gap-4 justify-center w-full">

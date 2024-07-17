@@ -1,6 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
+
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 import TechImage from '@/assets/technology/JavascriptLogo.png'
 import {
@@ -17,6 +18,7 @@ import {
   Posts,
   PostCard,
 } from '@/components'
+import { useTranslation } from '@/hooks'
 
 export const metadata: Metadata = {
   title: 'Alejandro Arribillaga | FrontEnd Engineer',
@@ -25,39 +27,36 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
+  const translations = useTranslation()
+  const { t } = translations
   return (
     <main>
       <Home>
-        <About />
-        <FindMe>
+        <About {...translations} />
+        <FindMe {...translations}>
           <FindMeCopy />
         </FindMe>
-        <Portfolio title="Noteworthy Works" isFeatured>
+        <Portfolio title={t('Home.Portfolio.Title')} isFeatured>
           <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
-            Explore some of my most notable works. Read more in my
+            {t('Home.Portfolio.FirstParagraph')}
             <Link className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="/portfolio">
-              {` Portfolio`}
+              {t('Home.Portfolio.GoTo')}
             </Link>
             <br /> <br />
-            Explore my portfolio—a blend of 17 years of software development expertise. With 14 years spent mastering
-            full-stack development and the last 3 dedicated solely to frontend, each project tells a story of innovation
-            and design. Experience the evolution from backend intricacies to captivating frontend interfaces, where
-            technical expertise meets visionary design.
+            {t('Home.Portfolio.SecondParagraph')}
           </p>
         </Portfolio>
-        <Resume />
-        <Education />
+        <Resume {...translations} />
+        <Education {...translations} />
         <div className="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 hover:ring-primary/5 bg-white dark:bg-secondary  dark:hover:ring-white/20 overflow-hidden duration-300 shadow-xl dark:shadow-thick rounded-3xl p-8">
           <Posts
-            title="My latest Posts"
+            title={t('Home.Posts.Title')}
             isFeatured
             description={
               <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light">
-                Explore my latest articles on programming, web development, and technology. Find quality technical
-                articles, tips, tutorials, and reflections here to help you keep your mind sharp and your skills up to
-                date in the world of software development. Read more in my
+                {t('Home.Posts.Paragraph')}
                 <Link className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="/blog">
-                  {` Blog`}
+                  {t('Home.Posts.GoTo')}
                 </Link>
               </p>
             }>
@@ -91,9 +90,9 @@ export default function Page() {
           </Posts>
         </div>
 
-        <Skills />
-        <Slogan />
-        <Testimonials />
+        <Skills {...translations} />
+        <Slogan text={t('Home.Slogan')} />
+        <Testimonials {...translations} />
       </Home>
     </main>
   )

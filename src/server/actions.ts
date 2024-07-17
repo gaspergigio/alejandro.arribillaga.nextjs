@@ -1,4 +1,5 @@
 import { createBrowserClient } from '@supabase/ssr'
+
 import IPost, { IPostList, PAGE_SIZE } from './types'
 
 async function signInOAuth() {
@@ -58,6 +59,7 @@ async function uploadFile(file: File) {
     .from('blog_bucket')
     .upload(`public/${fileName}.${timestamp}.${extension}`, file)
   if (error) {
+    // eslint-disable-next-line no-console
     console.error('Error uploading file:', error)
     return null
   }
@@ -72,6 +74,7 @@ async function removeFile(fullUrl: string) {
   const { error } = await supabase.storage.from('blog_bucket').remove([url])
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.error('Error removing file:', error)
     return null
   }
@@ -85,6 +88,7 @@ async function savePost(postData: any) {
   const { error } = await supabase.from('Blog').upsert([postData])
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.error('Error inserting into Supabase', error)
     return false
   }
@@ -114,6 +118,7 @@ async function getPostList(supabase: any, pageNumber: number): Promise<IPostList
     .range(from, to)
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching data:', error)
     return { data: null, total: 0 }
   }
@@ -124,6 +129,7 @@ async function getPostList(supabase: any, pageNumber: number): Promise<IPostList
     .lte('published_date', new Date().toISOString())
 
   if (countError) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching total count:', countError)
     return { data: null, total: 0 }
   }

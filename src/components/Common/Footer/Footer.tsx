@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react'
 export default function Footer() {
   return (

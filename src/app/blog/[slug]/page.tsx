@@ -1,7 +1,9 @@
 import React from 'react'
-import { DetailHero, BackBlog, GotoMedium } from '@/components'
-import { getPostBySlug } from '@/app/actions'
+
 import { Metadata } from 'next'
+
+import { getPostBySlug } from '@/app/actions'
+import { DetailHero, BackBlog, GotoMedium } from '@/components'
 
 const baseUrl = process.env.NEXT_PUBLIC_HOST as string
 

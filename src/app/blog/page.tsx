@@ -1,8 +1,12 @@
 import React from 'react'
-import { BlogListClient, FullMessage } from '@/components'
-import { getServerPostList } from '../actions'
-import CommingSoon from '@/assets/comming-soon.png'
+
 import { Metadata } from 'next'
+
+import CommingSoon from '@/assets/comming-soon.png'
+import { BlogListClient, FullMessage } from '@/components'
+import { useTranslation } from '@/hooks'
+
+import { getServerPostList } from '../actions'
 
 export const metadata: Metadata = {
   title: 'Blog | Alejandro Arribillaga | FrontEnd Engineer',
@@ -12,19 +16,23 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const blogList = await getServerPostList()
-
+  const { t } = useTranslation()
   return (
     <main>
       <section>
         <div className="px-4 xl:px-20 py-4">
           <div className="mt-24">
-            <BlogListClient data={blogList.data} total={blogList.total}>
+            <BlogListClient
+              data={blogList.data}
+              total={blogList.total}
+              title={t('Blog.Title')}
+              description={t('Blog.Paragraph')}
+              loadMoreText={t('Blog.LoadMore')}>
               {blogList?.data?.length === 0 && (
                 <FullMessage
                   imgSrc={CommingSoon.src}
-                  title="Comming Soon"
-                  description="In this page I will add some sample applications developed in my spare time for personal use. You can
-                  use them if you wish."
+                  title={t('Blog.NoPosts')}
+                  description={t('Blog.NoPostDescription')}
                 />
               )}
             </BlogListClient>

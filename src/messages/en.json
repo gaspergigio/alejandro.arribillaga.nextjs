@@ -1,0 +1,90 @@
+{
+  "Home": {
+    "About": {
+      "Title": "Hey, welcome to my site!",
+      "FirstParagraph": "I'm a passionate Front End Engineer with a wealth of experience in crafting intuitive user interfaces and architecting scalable applications. Proficient in ReactJS, Angular, and familiar with other state management libraries like Jotai, Redux, and Recoil, I excel in building dynamic and interactive web applications.",
+      "SecondParagraph": "My background includes past experience with .NET and a good understanding of Node.js. I prioritize web optimization techniques to ensure optimal performance and user experience. With a strong foundation in modular and domain-driven design approaches, I specialize in crafting reusable components and features. Committed to continuous learning, I thrive in nurturing collaborative environments and driving impactful results."
+    },
+    "FindMe": {
+      "Title": "Find me on",
+      "Paragraph": "Feel free to reach out to me if you have any questions, comments, or inquiries. I'm here to assist you with anything you need and address any concerns you may have. Your feedback is valuable to me, and I look forward to hearing from you"
+    },
+    "Portfolio": {
+      "Title": "Noteworthy Works",
+      "FirstParagraph": "Explore some of my most notable works. Read more in my",
+      "SecondParagraph": "Explore my portfolio—a blend of 17 years of software development expertise. With 14 years spent mastering full-stack development and the last 3 dedicated solely to frontend, each project tells a story of innovation and design. Experience the evolution from backend intricacies to captivating frontend interfaces, where technical expertise meets visionary design.",
+      "GoTo": " Portfolio",
+      "Proj1": "I contributed as a FrontEnd Engineer to the wedding planning platform, aiding in crafting a unique and personalized digital experience for users.",
+      "Proj2": "I worked as a FrontEnd Developer on Scalio's institutional website, built using Next.js, contributing to its development and optimization.",
+      "Proj3": "I've worked as a FullStack Engineer for 5 years at Geopop, a human resources outsourcing platform operating in Argentina, Chile, and Peru. I have been a technical leader for 3 year, here.",
+      "Proj4": "I collaborated as a FrontEnd Engineer on a crypto marketplace within an application that combined Angular and React, contributing to its development and functionality.",
+      "Proj5": "The NugVerse is a community of motion designers, filmmakers and social creators at the forefront of digital advertising. Video ads are created for platforms such as Facebook, Instagram, YouTube, Snapchat, TikTok, Twitter and Pinterest. Here I have served as FE Engineer at React.",
+      "Proj6": "I have participated in the creation of this webbuilder at Scalio as FrontEnd developer. I worked with Next and React.",
+      "Proj7": "Contributed to the development of a website using Angular Universal, applying my skills to improve functionality, enhance performance, and deliver an intuitive user experience.",
+      "Proj8": "Engaged in the creation of a sophisticated front-end project featuring intricate user interface designs. Leveraged advanced techniques to implement complex UI elements, ensuring seamless interaction and captivating visual appeal.",
+      "Proj9": "Contributed to the development of a sophisticated user interface for an institutional website, navigating through intricate design requirements and ensuring seamless user interaction. Implemented innovative solutions to optimize content presentation and enhance user engagement.",
+      "Proj10": "Collaborated on the development of a Next.js website, leveraging my expertise to enhance functionality, optimize performance, and ensure a seamless user experience.",
+      "Proj11": "Contributed to the development of a challenging UI for a gaming platform, navigating through intricate design requirements and pushing the boundaries of user interaction. Implemented innovative solutions to enhance gameplay experience and captivate players.",
+      "Proj12": "Played a key role in crafting the user interface for an institutional website, focusing on delivering an intuitive and visually appealing platform for visitors. Employed creative design strategies to convey complex information effectively and create a memorable user experience.",
+      "Proj13": "I've contributed to maintaining the Health System, developed a new software solution tailored for Dentistry, and crafted websites and applications to support the organization's objectives.",
+      "Proj14": "I was heavily involved in the development of the internal Sooft Technology App, which has since been rebranded and consolidated into Geopop. During this time, I served as the Technical Lead, overseeing various aspects of the project's implementation and ensuring its successful execution."
+    },
+    "Resume": {
+      "Title": "Get my resume",
+      "Paragraph": "Dive into my work experience and professional achievements. Your next FrontEnd Engineer is here!",
+      "Download": "Download my CV"
+    },
+    "Education": {
+      "Title": "Education",
+      "FirstList1": "I am a",
+      "FirstList2": "graduated from ",
+      "SecondList1": "I have completed an ",
+      "SecondList2": "with a focus on technology from ",
+      "SecondList3": ". I have not defended the thesis yet.",
+      "ThirdList": "In addition, I have completed numerous technical and project management courses over the last 10 years.",
+      "FourthList1": "Overall, ",
+      "FourthList2": "I am passionate about continuous learning and growth",
+      "FourthList3": ", valuing the acquisition of knowledge regardless of its source. Whether through formal education, online courses or hands-on experience, I believe in the importance of remaining curious and taking advantage of new"
+    },
+    "Posts": {
+      "Title": "My latest Posts",
+      "Paragraph": "Explore my latest articles on programming, web development, and technology. Find quality technical articles, tips, tutorials, and reflections here to help you keep your mind sharp and your skills up to date in the world of software development. Read more in my",
+      "GoTo": " Blog"
+    },
+    "Skills": {
+      "Title": "Skills",
+      "Paragraph": "Below is a list of some of the technologies I have worked with or have previous experience with:"
+    },
+    "Slogan": "As a Frontend Engineer, I firmly believe that successful development stems from clear communication, an, empathetic approach to user needs, and a steadfast commitment to delivering top-tier code.",
+    "Testimonials": {
+      "Title": "Testimonials",
+      "FirstTestimonial": "Alejandro is an excellent professional, both technically and in terms of soft skills. I had the opportunity to work with him for a couple of years where I could realize that in addition to having great technical skills, he always has a complete picture of the product or solution that he is working on. He is passionate about technology and this keeps him in constant training and willing to help other team members or people in charge at any time.",
+      "SecondTestimonial": "I've had the privilege of working alongside Alejandro, and I am consistently impressed by his dedication to excellence. He brings a deep passion for front-end development, particularly in React, and consistently delivers high-quality work. Alejandro proactively seeks new challenges and learning opportunities, which greatly benefits our team's success. His collaborative nature and strong communication skills make him a valuable asset to any project. In summary, Alejandro is a skilled front-end engineer with a proactive attitude and a collaborative spirit. It's been a pleasure working with him.",
+      "ThirdTestimonial": "Alejandro is an excellent professional, with knowledge in many technologies and a good quality criterion. I was fortunate to work with him on several projects and achieve great challenges. He is a results-oriented person, capable of working in a team and leading it. He has a comprehensive vision of the products and projects that allows him to understand the business needs and requirements, schedule them, and deliver products with great professionalism."
+    }
+  },
+  "Portfolio": {
+    "Title": "Explore My Portfolio",
+    "FirstParagraph": "Discover my Portfolio showcasing a blend of frontend and fullstack projects. From dynamic web applications to elegant user interfaces, each project represents my dedication to crafting impactful digital experiences. Explore how I leverage my expertise in frontend development and fullstack knowledge to deliver innovative solutions that resonate with users and drive business success.",
+    "SecondParagraph": "On this page, I'm only showcasing relevant and more recent projects. Many other projects have been left out of the enumerated list displayed here."
+  },
+  "Blog": {
+    "Title": "My Blog",
+    "Paragraph": " Explore my latest articles on programming, web development, and technology. Find quality technical articles, tips, tutorials, and reflections here to help you keep your mind sharp and your skills up to date in the world of software development.",
+    "LoadMore": "Load More",
+    "NoPosts": "No posts to show",
+    "NoPostDescription": "There are no posts to show at the moment. Please check back later for more content."
+  },
+  "Apps": {
+    "NoApps": "Comming Soon",
+    "NoAppsDescription": "In this page I will add some sample applications developed in my spare time for personal use. You can use them if you wish."
+  },
+  "NotFound": {
+    "Title": "Page not found",
+    "Description": "Sorry, the page you are looking for does not exist. The link may be broken or the page may have been removed. Go back to the top to continue exploring my site and find out more about my work and projects as a FrontEnd Engineer."
+  },
+  "Navbar": {
+    "SignIn": "Sign in with Github",
+    "SignOut": "Sign out"
+  }
+}

@@ -1,12 +1,15 @@
 import React from 'react'
+import { Toaster } from 'react-hot-toast'
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import './globals.css'
+
 import { getServerUser, isServerUserAdmin } from '@/app/actions'
 import { Footer, Navbar } from '@/components'
 import { SessionProvider } from '@/components'
-import { Toaster } from 'react-hot-toast'
+import { useTranslation } from '@/hooks'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,13 +24,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const { t } = useTranslation()
   const user = await getServerUser()
   const isAdmin = await isServerUserAdmin()
   return (
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider serverSessionUser={user} isServerUserAdmin={isAdmin}>
-          <Navbar />
+          <Navbar loginTxt={t('Navbar.SignIn')} logoutTxt={t('Navbar.SignOut')} />
           <Toaster position="top-right" />
           {children}
           <Footer />
