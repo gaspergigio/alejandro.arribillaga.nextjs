@@ -10,9 +10,7 @@ function FindMe({ children, t }: { children: React.ReactNode; t: (key: string) =
         <p className="text-xl font-normal tracking-tight text-primary dark:text-white lg:text-6xl">
           {t('Home.FindMe.Title')}
         </p>
-        <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">
-          {t('Home.FindMe.Paragraph')}
-        </p>
+        <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 md:max-w-none">{t('Home.FindMe.Paragraph')}</p>
       </div>
       <div className="grid mt-4 grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-y-4 gap-4 justify-center w-full">
         <div className="col-span-4 gap-x-3 flex">

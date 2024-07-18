@@ -2,11 +2,11 @@ import React from 'react'
 
 export default function Testimonials({ t }: { t: (key: string) => string }) {
   return (
-    <div className="lg:col-span-2 xl:col-span-1 h-full flex flex-col justify-evenly lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary shadow-xl dark:shadow-thick rounded-3xl p-8">
-      <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-5xl">
+    <div className="lg:col-span-2 xl:col-span-1 h-full flex flex-col justify-start lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary shadow-xl dark:shadow-thick rounded-3xl p-8">
+      <p className="text-xl tracking-tight font-medium text-primary dark:text-white md:text-5xl mb-10">
         {t('Home.Testimonials.Title')}
       </p>
-      <div className="md:grid md:grid-cols-2 gap-6 lg:grid-cols-1">
+      <div className="md:grid gap-6 md:grid-cols-1">
         <div>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">{t('Home.Testimonials.FirstTestimonial')}</p>
           <p className="text-xs mt-2 text-zinc-500">
