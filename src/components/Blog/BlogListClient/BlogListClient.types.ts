@@ -5,4 +5,5 @@ export interface IBlogListClient extends IPostList {
   title: string
   description: string
   loadMoreText: string
+  locale: string
 }

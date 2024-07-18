@@ -117,9 +117,9 @@ async function getBlogStatus() {
   }))
 }
 
-async function getServerPostList() {
+async function getServerPostList(pageSize?: number) {
   const supabase = await getServerSupabase()
-  return getPostList(supabase, 1)
+  return getPostList(supabase, 1, pageSize)
 }
 
 async function getPostBySlug(slug: string) {

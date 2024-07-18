@@ -101,9 +101,10 @@ async function getClientPostList(pageNumber: number) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function getPostList(supabase: any, pageNumber: number): Promise<IPostList> {
-  const from = (pageNumber - 1) * PAGE_SIZE
-  const to = from + PAGE_SIZE - 1
+async function getPostList(supabase: any, pageNumber: number, pageSize?: number): Promise<IPostList> {
+  const size = pageSize ?? PAGE_SIZE
+  const from = (pageNumber - 1) * size
+  const to = from + size - 1
 
   const { data, error } = await supabase
     .from('Blog')

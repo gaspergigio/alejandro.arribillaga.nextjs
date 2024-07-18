@@ -3,7 +3,6 @@ import React from 'react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import TechImage from '@/assets/technology/JavascriptLogo.png'
 import {
   Home,
   About,
@@ -19,6 +18,7 @@ import {
   PostCard,
 } from '@/components'
 import { useTranslation } from '@/hooks'
+import { getServerPostList } from './actions'
 
 export const metadata: Metadata = {
   title: 'Alejandro Arribillaga | FrontEnd Engineer',
@@ -26,9 +26,10 @@ export const metadata: Metadata = {
     'Bienvenido a la página personal de Alejandro Arribillaga, un experimentado FrontEnd Engineer con 17 años de experiencia. Descubre más sobre mis habilidades, proyectos y experiencia profesional.',
 }
 
-export default function Page() {
+export default async function Page() {
+  const blogList = await getServerPostList(3)
   const translations = useTranslation()
-  const { t } = translations
+  const { t, locale } = translations
   return (
     <main>
       <Home>
@@ -60,33 +61,19 @@ export default function Page() {
                 </Link>
               </p>
             }>
-            <PostCard
-              title="Meet AutoManage, the best AI management tools"
-              slug="meet-automanage-the-best-ai-management-tools"
-              imgSrc={TechImage.src}
-              publishDate={new Date()}>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </p>
-            </PostCard>
-            <PostCard
-              title=" How to earn more money as a wellness coach"
-              slug="how-to-earn-more-money-as-a-wellness-coach"
-              imgSrc={TechImage.src}
-              publishDate={new Date()}>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </p>
-            </PostCard>
-            <PostCard
-              title=" How to earn more money as a wellness coach"
-              slug="how-to-earn-more-money-as-a-wellness-coach-2"
-              imgSrc={TechImage.src}
-              publishDate={new Date()}>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </p>
-            </PostCard>
+            {blogList.data &&
+              blogList.data.map((post) => (
+                <PostCard
+                  key={post.id}
+                  title={locale === 'es' ? post.title : post.en_title}
+                  slug={post.slug}
+                  imgSrc={post.thumb_path}
+                  publishDate={new Date(post.published_date)}>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                    {locale === 'es' ? post.preview : post.en_preview}
+                  </p>
+                </PostCard>
+              ))}
           </Posts>
         </div>
 

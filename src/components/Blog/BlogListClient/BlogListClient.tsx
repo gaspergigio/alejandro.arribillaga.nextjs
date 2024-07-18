@@ -8,7 +8,15 @@ import { PAGE_SIZE } from '@/server/types'
 import { IBlogListClient } from './BlogListClient.types'
 /* import { CircularProgress } from '@nextui-org/react' */
 
-export default function BlogListClient({ data, total, children, title, description, loadMoreText }: IBlogListClient) {
+export default function BlogListClient({
+  data,
+  total,
+  children,
+  title,
+  description,
+  loadMoreText,
+  locale,
+}: IBlogListClient) {
   const [blog, setBlog] = useState(data ?? [])
   const [isLoading, setLoading] = useState(false)
 
@@ -31,11 +39,13 @@ export default function BlogListClient({ data, total, children, title, descripti
           blog.map((post) => (
             <PostCard
               key={post.id}
-              title={post.title}
+              title={locale === 'es' ? post.title : post.en_title}
               slug={post.slug}
               imgSrc={post.thumb_path}
               publishDate={new Date(post.published_date)}>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">{post.preview}</p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                {locale === 'es' ? post.preview : post.en_preview}
+              </p>
             </PostCard>
           ))}
       </Posts>

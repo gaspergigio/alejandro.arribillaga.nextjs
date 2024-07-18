@@ -65,27 +65,11 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
   return (
     <nav className="flex justify-between bg-secondary text-white w-screen fixed z-50">
       <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-        <a className="text-3xl font-bold font-heading" href="#">
-          <Image alt="logo" className="h-9 rounded-full" src={Logo.src} width={36} height={36} />
-        </a>
-        {/* Nav Links */}
-        <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-          <NavbarItem to="/" pathName={pathname}>
-            Home
-          </NavbarItem>
-          <NavbarItem to="/portfolio" pathName={pathname}>
-            Portfolio
-          </NavbarItem>
-          <NavbarItem to="/blog" pathName={pathname}>
-            Blog
-          </NavbarItem>
-          <NavbarItem to="/apps" pathName={pathname}>
-            Apps
-          </NavbarItem>
-        </ul>
-        {/* Header Icons */}
-        <div className="hidden md:flex items-center space-x-5 items-center">
-          <div className="flex gap-4">
+        <div className="flex gap-4">
+          <a className="text-3xl font-bold font-heading" href="#">
+            <Image alt="logo" className="h-9 rounded-full" src={Logo.src} width={36} height={36} />
+          </a>
+          <div className="flex gap-5">
             {isMounted && !langDisabled ? (
               <Kbd className={langDisabled ? 'cursor-default' : 'cursor-pointer'} onClick={handleLanguageChange}>
                 {locale === 'es' ? 'ES' : 'EN'}
@@ -110,7 +94,25 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
               </Kbd>
             )}
           </div>
+        </div>
 
+        {/* Nav Links */}
+        <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
+          <NavbarItem to="/" pathName={pathname}>
+            Home
+          </NavbarItem>
+          <NavbarItem to="/portfolio" pathName={pathname}>
+            Portfolio
+          </NavbarItem>
+          <NavbarItem to="/blog" pathName={pathname}>
+            Blog
+          </NavbarItem>
+          <NavbarItem to="/apps" pathName={pathname}>
+            Apps
+          </NavbarItem>
+        </ul>
+        {/* Header Icons */}
+        <div className="hidden md:flex space-x-5 items-center">
           <NavbarAuthButton
             user={sessionUser}
             handleClick={handleGitHubClick}
@@ -156,9 +158,13 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
             </a>
           </li>
           <li>
-            <a className="hover:text-gray-200" href="/login">
-              Login
-            </a>
+            <NavbarAuthButton
+              user={sessionUser}
+              handleClick={handleGitHubClick}
+              disabled={authDisabled}
+              loginTxt={loginTxt}
+              logoutTxt={logoutTxt}
+            />
           </li>
         </ul>
       </div>

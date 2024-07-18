@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const blogList = await getServerPostList()
-  const { t } = useTranslation()
+  const { t, locale } = useTranslation()
   return (
     <main>
       <section>
@@ -27,6 +27,7 @@ export default async function Page() {
               total={blogList.total}
               title={t('Blog.Title')}
               description={t('Blog.Paragraph')}
+              locale={locale}
               loadMoreText={t('Blog.LoadMore')}>
               {blogList?.data?.length === 0 && (
                 <FullMessage
