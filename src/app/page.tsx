@@ -16,6 +16,7 @@ import {
   Slogan,
   Posts,
   PostCard,
+  FadeUp,
 } from '@/components'
 import { useTranslation } from '@/hooks'
 import { getServerPostList } from './actions'
@@ -30,6 +31,7 @@ export default async function Page() {
   const blogList = await getServerPostList(3)
   const translations = useTranslation()
   const { t, locale } = translations
+
   return (
     <main>
       <Home>
@@ -38,14 +40,16 @@ export default async function Page() {
           <FindMeCopy />
         </FindMe>
         <Portfolio title={t('Home.Portfolio.Title')} isFeatured>
-          <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
-            {t('Home.Portfolio.FirstParagraph')}
-            <Link className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="/portfolio">
-              {t('Home.Portfolio.GoTo')}
-            </Link>
-            <br /> <br />
-            {t('Home.Portfolio.SecondParagraph')}
-          </p>
+          <FadeUp y={100}>
+            <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
+              {t('Home.Portfolio.FirstParagraph')}
+              <Link className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="/portfolio">
+                {t('Home.Portfolio.GoTo')}
+              </Link>
+              <br /> <br />
+              {t('Home.Portfolio.SecondParagraph')}
+            </p>
+          </FadeUp>
         </Portfolio>
         <Resume {...translations} />
         <Education {...translations} />
@@ -65,6 +69,7 @@ export default async function Page() {
               blogList.data.map((post) => (
                 <PostCard
                   key={post.id}
+                  isFeatured
                   title={locale === 'es' ? post.title : post.en_title}
                   slug={post.slug}
                   imgSrc={post.thumb_path}

@@ -2,7 +2,7 @@ import React from 'react'
 
 import type { Metadata } from 'next'
 
-import { Portfolio } from '@/components'
+import { FadeUp, Portfolio } from '@/components'
 import { useTranslation } from '@/hooks'
 
 export const metadata: Metadata = {
@@ -19,10 +19,12 @@ export default function Page() {
         <div className="px-4 xl:px-20 py-4">
           <div className="mt-24">
             <Portfolio title={t('Portfolio.Title')}>
-              <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
-                {t('Portfolio.FirstParagraph')}
-                <br /> <br /> {t('Portfolio.SecondParagraph')}
-              </p>
+              <FadeUp y={100}>
+                <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
+                  {t('Portfolio.FirstParagraph')}
+                  <br /> <br /> {t('Portfolio.SecondParagraph')}
+                </p>
+              </FadeUp>
             </Portfolio>
           </div>
         </div>

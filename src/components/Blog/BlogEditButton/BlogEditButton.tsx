@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 
 import { IconEdit } from '@tabler/icons-react'
 
-import { useSessionContext } from '@/components/Common'
+import { useSessionContext } from '@/components'
 import { Tooltip } from '@nextui-org/tooltip'
 
 export default function BlogEditButton({ slug }: { slug: string }) {
