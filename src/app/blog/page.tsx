@@ -20,7 +20,7 @@ export default async function Page() {
   return (
     <main>
       <section>
-        <div className="px-4 xl:px-20 py-4">
+        <div className="px-4 xl:px-20 py-4 extend-height">
           <div className="mt-24">
             <BlogListClient
               data={blogList.data}
