@@ -29,7 +29,7 @@ export default async function RootLayout({
   const isAdmin = await isServerUserAdmin()
   return (
     <html lang="en">
-      <body className={inter.className} style={{ width: '-webkit-fill-available' }}>
+      <body className={inter.className} style={{ width: '100%', overflowX: 'hidden' }}>
         <SessionProvider serverSessionUser={user} isServerUserAdmin={isAdmin}>
           <Navbar loginTxt={t('Navbar.SignIn')} logoutTxt={t('Navbar.SignOut')} />
           <Toaster position="top-right" />

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 import Logo from '@/assets/logo.webp'
-import { FadeX, useSessionContext } from '@/components'
+import { FadeUp, useSessionContext } from '@/components'
 import useCookie from '@/hooks/useCookie'
 import { signOut, signInOAuth, getUser } from '@/server'
 import { Kbd } from '@nextui-org/react'
@@ -65,7 +65,7 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
   return (
     <nav className="flex justify-between bg-secondary text-white w-screen fixed z-50">
       <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-        <FadeX x={-50}>
+        <FadeUp y={50}>
           <div className="flex gap-4">
             <a className="text-3xl font-bold font-heading" href="#">
               <Image alt="logo" className="h-9 rounded-full" src={Logo.src} width={36} height={36} />
@@ -97,7 +97,7 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
               )}
             </div>
           </div>
-        </FadeX>
+        </FadeUp>
 
         {/* Nav Links */}
         <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
@@ -116,7 +116,7 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
         </ul>
         {/* Header Icons */}
         <div className="hidden md:flex space-x-5 items-center">
-          <FadeX x={50}>
+          <FadeUp y={50}>
             <NavbarAuthButton
               user={sessionUser}
               handleClick={handleGitHubClick}
@@ -124,7 +124,7 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
               loginTxt={loginTxt}
               logoutTxt={logoutTxt}
             />
-          </FadeX>
+          </FadeUp>
         </div>
       </div>
       {/* Responsive navbar */}

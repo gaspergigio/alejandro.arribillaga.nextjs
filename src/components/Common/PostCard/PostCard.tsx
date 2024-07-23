@@ -3,7 +3,7 @@ import React from 'react'
 import { format } from 'date-fns'
 import Link from 'next/link'
 
-import { BlogEditButton, FadeX } from '@/components'
+import { BlogEditButton, FadeUp } from '@/components'
 
 import { PostCardProps } from './PostCard.types'
 
@@ -12,7 +12,7 @@ export default function PostCard({ isFeatured, imgSrc, publishDate, title, slug,
 
   return (
     <Link href={`/blog/${slug}`} className={`${cardWidth} px-4 mb-8`}>
-      <FadeX x={150}>
+      <FadeUp y={150}>
         <div className="flex flex-col h-full border border-gray-400 rounded-lg p-4 hover:shadow-md transition-shadow duration-300">
           {!isFeatured && (
             <div className="mb-8 overflow-hidden rounded w-24 h-24 mx-auto">
@@ -43,7 +43,7 @@ export default function PostCard({ isFeatured, imgSrc, publishDate, title, slug,
             {children}
           </div>
         </div>
-      </FadeX>
+      </FadeUp>
     </Link>
   )
 }

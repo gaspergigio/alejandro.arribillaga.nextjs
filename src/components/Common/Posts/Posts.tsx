@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BlogAddButton, FadeX } from '@/components'
+import { BlogAddButton, FadeUp } from '@/components'
 
 import { PostsProps } from './Posts.types'
 
@@ -13,13 +13,13 @@ export default function Posts({ isFeatured, title, description, children }: Post
   return (
     <>
       <div>
-        <FadeX x={50}>
+        <FadeUp y={50}>
           <div className="flex gap-4 ext-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">
             <p>{title}</p>
             <BlogAddButton />
           </div>
-        </FadeX>
-        <FadeX x={100}>{description}</FadeX>
+        </FadeUp>
+        <FadeUp y={100}>{description}</FadeUp>
       </div>
       <section className="pt-4 lg:pt-10 lg:pb-8 dark:ring-white/10">
         <div className={`${isFeatured ? 'container' : ''} mx-auto`}>

@@ -1,15 +1,15 @@
-import { FadeX } from '@/components'
+import { FadeUp } from '@/components'
 import React from 'react'
 
 export default function Education({ t }: { t: (key: string) => string }) {
   return (
     <div className="ring-1 lg:row-start-3 items-center h-full flex p-8 flex-col justify-center hover:ring-primary/5 dark:hover:ring-white/20 dark:ring-white/10 ring-primary/5 relative rounded-3xl overflow-hidden bg-white dark:bg-secondary shadow-xl dark:shadow-thick">
-      <FadeX x={-50}>
+      <FadeUp y={50}>
         <p className="ext-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl mt-6">
           {t('Home.Education.Title')}
         </p>
-      </FadeX>
-      <FadeX x={-100}>
+      </FadeUp>
+      <FadeUp y={100}>
         <ul>
           <li className="text-sm text-zinc-500 dark:text-zinc-400 mt-8">
             {t('Home.Education.FirstList1')} <span className="font-bold  text-white">Software engineer</span>
@@ -29,7 +29,7 @@ export default function Education({ t }: { t: (key: string) => string }) {
             {t('Home.Education.FourthList3')}
           </li>
         </ul>
-      </FadeX>
+      </FadeUp>
     </div>
   )
 }
