@@ -5,6 +5,7 @@ export type PortfolioProps = {
   isFeatured?: boolean
   children: ReactNode
   title: string
+  t: (key: string) => string
 }
 
 export type PortfolioCardProps = {

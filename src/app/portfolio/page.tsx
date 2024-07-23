@@ -18,7 +18,7 @@ export default function Page() {
       <section>
         <div className="px-4 xl:px-20 py-4">
           <div className="mt-24">
-            <Portfolio title={t('Portfolio.Title')}>
+            <Portfolio title={t('Portfolio.Title')} t={t}>
               <FadeUp y={100}>
                 <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
                   {t('Portfolio.FirstParagraph')}

@@ -13,21 +13,7 @@
       "Title": "Proyectos",
       "FirstParagraph": "Explora algunos de mis trabajos. Lee más en mi",
       "SecondParagraph": "Explora mi portafolio: una mezcla de 17 años de experiencia en desarrollo de software. Con 14 años dedicados al desarrollo full-stack y los últimos 3 exclusivamente al frontend, cada proyecto cuenta una historia de innovación y diseño. Experimenta la evolución desde las complejidades del backend hasta las atractivas interfaces frontend, donde la experiencia técnica se encuentra con el diseño visionario.",
-      "GoTo": " Portafolio",
-      "Proj1": "Contribuí como FrontEnd Engineer a la plataforma de planificación de bodas, ayudando a crear una experiencia digital única y personalizada para los usuarios.",
-      "Proj2": "Trabajé como FrontEnd Engineer en el sitio institucional de Scalio, construido con Next.js, contribuyendo a su desarrollo y optimización.",
-      "Proj3": "He trabajado como FullStack Engineer durante 5 años en Geopop, una plataforma de outsourcing de recursos humanos que opera en Argentina, Chile y Perú. He sido líder técnico durante 3 años aquí.",
-      "Proj4": "Colaboré como FrontEnd Engineer en un mercado de criptomonedas dentro de una aplicación que combinaba Angular y React, contribuyendo a su desarrollo y funcionalidad.",
-      "Proj5": "The NugVerse es una comunidad de diseñadores de movimiento, cineastas y creadores sociales a la vanguardia de la publicidad digital. Se crean anuncios de video para plataformas como Facebook, Instagram, YouTube, Snapchat, TikTok, Twitter y Pinterest. Aquí he servido como  FrontEnd Engineer en React.",
-      "Proj6": "He participado en la creación de este constructor web en Scalio como FrontEnd Engineer. Trabajé con Next y React.",
-      "Proj7": "Contribuí al desarrollo de un sitio web utilizando Angular Universal, aplicando mis habilidades para mejorar la funcionalidad, mejorar el rendimiento y ofrecer una experiencia de usuario intuitiva.",
-      "Proj8": "Participé en la creación de un proyecto frontend sofisticado con diseños de interfaz de usuario intrincados. Utilicé técnicas avanzadas para implementar elementos de UI complejos, asegurando una interacción fluida y un atractivo visual cautivador.",
-      "Proj9": "Contribuí al desarrollo de una interfaz de usuario sofisticada para un sitio web institucional, navegando a través de requisitos de diseño complejos y asegurando una interacción fluida con el usuario. Implementé soluciones innovadoras para optimizar la presentación de contenido y mejorar el compromiso del usuario.",
-      "Proj10": "Colaboré en el desarrollo de un sitio web con Next.js, aprovechando mi experiencia para mejorar la funcionalidad, optimizar el rendimiento y asegurar una experiencia de usuario fluida.",
-      "Proj11": "Contribuí al desarrollo de una UI desafiante para una plataforma de juegos, navegando a través de requisitos de diseño intrincados y empujando los límites de la interacción del usuario. Implementé soluciones innovadoras para mejorar la experiencia de juego y cautivar a los jugadores.",
-      "Proj12": "Desempeñé un papel clave en la creación de la interfaz de usuario para un sitio web institucional, enfocándome en ofrecer una plataforma intuitiva y visualmente atractiva para los visitantes. Empleé estrategias de diseño creativo para transmitir información compleja de manera efectiva y crear una experiencia de usuario memorable.",
-      "Proj13": "He contribuido a mantener el Sistema de Salud, desarrollado una nueva solución de software adaptada para la odontología, y creado sitios web y aplicaciones para apoyar los objetivos de la organización.",
-      "Proj14": "Estuve muy involucrado en el desarrollo de la Aplicación Interna de Sooft Technology, que desde entonces ha sido rebrandeada y consolidada en Geopop. Durante este tiempo, me desempeñé como Líder Técnico, supervisando varios aspectos de la implementación del proyecto y asegurando su ejecución exitosa."
+      "GoTo": " Portafolio"
     },
     "Resume": {
       "Title": "Obtiene mi CV",
@@ -66,7 +52,21 @@
   "Portfolio": {
     "Title": "Explora mi Portafolio",
     "FirstParagraph": "Descubre mi Portafolio que muestra una mezcla de proyectos frontend y fullstack. Desde aplicaciones web dinámicas hasta elegantes interfaces de usuario, cada proyecto representa mi dedicación a crear experiencias digitales impactantes. Explora cómo aprovecho mi experiencia en desarrollo frontend y conocimientos fullstack para ofrecer soluciones innovadoras que resuenan con los usuarios y impulsan el éxito empresarial.",
-    "SecondParagraph": "En esta página, solo estoy mostrando proyectos relevantes y más recientes. Muchos otros proyectos han quedado fuera de la lista enumerada aquí."
+    "SecondParagraph": "En esta página, solo estoy mostrando proyectos relevantes y más recientes. Muchos otros proyectos han quedado fuera de la lista enumerada aquí.",
+    "Proj1": "Contribuí como FrontEnd Engineer a la plataforma de planificación de bodas, ayudando a crear una experiencia digital única y personalizada para los usuarios.",
+    "Proj2": "Trabajé como FrontEnd Engineer en el sitio institucional de Scalio, construido con Next.js, contribuyendo a su desarrollo y optimización.",
+    "Proj3": "He trabajado como FullStack Engineer durante 5 años en Geopop, una plataforma de outsourcing de recursos humanos que opera en Argentina, Chile y Perú. He sido líder técnico durante 3 años aquí.",
+    "Proj4": "Colaboré como FrontEnd Engineer en un mercado de criptomonedas dentro de una aplicación que combinaba Angular y React, contribuyendo a su desarrollo y funcionalidad.",
+    "Proj5": "The NugVerse es una comunidad de diseñadores de movimiento, cineastas y creadores sociales a la vanguardia de la publicidad digital. Se crean anuncios de video para plataformas como Facebook, Instagram, YouTube, Snapchat, TikTok, Twitter y Pinterest. Aquí he servido como  FrontEnd Engineer en React.",
+    "Proj6": "He participado en la creación de este constructor web en Scalio como FrontEnd Engineer. Trabajé con Next y React.",
+    "Proj7": "Contribuí al desarrollo de un sitio web utilizando Angular Universal, aplicando mis habilidades para mejorar la funcionalidad, mejorar el rendimiento y ofrecer una experiencia de usuario intuitiva.",
+    "Proj8": "Participé en la creación de un proyecto frontend sofisticado con diseños de interfaz de usuario intrincados. Utilicé técnicas avanzadas para implementar elementos de UI complejos, asegurando una interacción fluida y un atractivo visual cautivador.",
+    "Proj9": "Contribuí al desarrollo de una interfaz de usuario sofisticada para un sitio web institucional, navegando a través de requisitos de diseño complejos y asegurando una interacción fluida con el usuario. Implementé soluciones innovadoras para optimizar la presentación de contenido y mejorar el compromiso del usuario.",
+    "Proj10": "Colaboré en el desarrollo de un sitio web con Next.js, aprovechando mi experiencia para mejorar la funcionalidad, optimizar el rendimiento y asegurar una experiencia de usuario fluida.",
+    "Proj11": "Contribuí al desarrollo de una UI desafiante para una plataforma de juegos, navegando a través de requisitos de diseño intrincados y empujando los límites de la interacción del usuario. Implementé soluciones innovadoras para mejorar la experiencia de juego y cautivar a los jugadores.",
+    "Proj12": "Desempeñé un papel clave en la creación de la interfaz de usuario para un sitio web institucional, enfocándome en ofrecer una plataforma intuitiva y visualmente atractiva para los visitantes. Empleé estrategias de diseño creativo para transmitir información compleja de manera efectiva y crear una experiencia de usuario memorable.",
+    "Proj13": "He contribuido a mantener el Sistema de Salud, desarrollado una nueva solución de software adaptada para la odontología, y creado sitios web y aplicaciones para apoyar los objetivos de la organización.",
+    "Proj14": "Estuve muy involucrado en el desarrollo de la Aplicación Interna de Sooft Technology, que desde entonces ha sido rebrandeada y consolidada en Geopop. Durante este tiempo, me desempeñé como Líder Técnico, supervisando varios aspectos de la implementación del proyecto y asegurando su ejecución exitosa."
   },
   "Blog": {
     "Title": "Mi Blog",

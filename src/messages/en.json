@@ -13,21 +13,7 @@
       "Title": "Noteworthy Works",
       "FirstParagraph": "Explore some of my most notable works. Read more in my",
       "SecondParagraph": "Explore my portfolio—a blend of 17 years of software development expertise. With 14 years spent mastering full-stack development and the last 3 dedicated solely to frontend, each project tells a story of innovation and design. Experience the evolution from backend intricacies to captivating frontend interfaces, where technical expertise meets visionary design.",
-      "GoTo": " Portfolio",
-      "Proj1": "I contributed as a FrontEnd Engineer to the wedding planning platform, aiding in crafting a unique and personalized digital experience for users.",
-      "Proj2": "I worked as a FrontEnd Developer on Scalio's institutional website, built using Next.js, contributing to its development and optimization.",
-      "Proj3": "I've worked as a FullStack Engineer for 5 years at Geopop, a human resources outsourcing platform operating in Argentina, Chile, and Peru. I have been a technical leader for 3 year, here.",
-      "Proj4": "I collaborated as a FrontEnd Engineer on a crypto marketplace within an application that combined Angular and React, contributing to its development and functionality.",
-      "Proj5": "The NugVerse is a community of motion designers, filmmakers and social creators at the forefront of digital advertising. Video ads are created for platforms such as Facebook, Instagram, YouTube, Snapchat, TikTok, Twitter and Pinterest. Here I have served as FE Engineer at React.",
-      "Proj6": "I have participated in the creation of this webbuilder at Scalio as FrontEnd developer. I worked with Next and React.",
-      "Proj7": "Contributed to the development of a website using Angular Universal, applying my skills to improve functionality, enhance performance, and deliver an intuitive user experience.",
-      "Proj8": "Engaged in the creation of a sophisticated front-end project featuring intricate user interface designs. Leveraged advanced techniques to implement complex UI elements, ensuring seamless interaction and captivating visual appeal.",
-      "Proj9": "Contributed to the development of a sophisticated user interface for an institutional website, navigating through intricate design requirements and ensuring seamless user interaction. Implemented innovative solutions to optimize content presentation and enhance user engagement.",
-      "Proj10": "Collaborated on the development of a Next.js website, leveraging my expertise to enhance functionality, optimize performance, and ensure a seamless user experience.",
-      "Proj11": "Contributed to the development of a challenging UI for a gaming platform, navigating through intricate design requirements and pushing the boundaries of user interaction. Implemented innovative solutions to enhance gameplay experience and captivate players.",
-      "Proj12": "Played a key role in crafting the user interface for an institutional website, focusing on delivering an intuitive and visually appealing platform for visitors. Employed creative design strategies to convey complex information effectively and create a memorable user experience.",
-      "Proj13": "I've contributed to maintaining the Health System, developed a new software solution tailored for Dentistry, and crafted websites and applications to support the organization's objectives.",
-      "Proj14": "I was heavily involved in the development of the internal Sooft Technology App, which has since been rebranded and consolidated into Geopop. During this time, I served as the Technical Lead, overseeing various aspects of the project's implementation and ensuring its successful execution."
+      "GoTo": " Portfolio"
     },
     "Resume": {
       "Title": "Get my resume",
@@ -66,7 +52,21 @@
   "Portfolio": {
     "Title": "Explore My Portfolio",
     "FirstParagraph": "Discover my Portfolio showcasing a blend of frontend and fullstack projects. From dynamic web applications to elegant user interfaces, each project represents my dedication to crafting impactful digital experiences. Explore how I leverage my expertise in frontend development and fullstack knowledge to deliver innovative solutions that resonate with users and drive business success.",
-    "SecondParagraph": "On this page, I'm only showcasing relevant and more recent projects. Many other projects have been left out of the enumerated list displayed here."
+    "SecondParagraph": "On this page, I'm only showcasing relevant and more recent projects. Many other projects have been left out of the enumerated list displayed here.",
+    "Proj1": "I contributed as a FrontEnd Engineer to the wedding planning platform, aiding in crafting a unique and personalized digital experience for users.",
+    "Proj2": "I worked as a FrontEnd Developer on Scalio's institutional website, built using Next.js, contributing to its development and optimization.",
+    "Proj3": "I've worked as a FullStack Engineer for 5 years at Geopop, a human resources outsourcing platform operating in Argentina, Chile, and Peru. I have been a technical leader for 3 year, here.",
+    "Proj4": "I collaborated as a FrontEnd Engineer on a crypto marketplace within an application that combined Angular and React, contributing to its development and functionality.",
+    "Proj5": "The NugVerse is a community of motion designers, filmmakers and social creators at the forefront of digital advertising. Video ads are created for platforms such as Facebook, Instagram, YouTube, Snapchat, TikTok, Twitter and Pinterest. Here I have served as FE Engineer at React.",
+    "Proj6": "I have participated in the creation of this webbuilder at Scalio as FrontEnd developer. I worked with Next and React.",
+    "Proj7": "Contributed to the development of a website using Angular Universal, applying my skills to improve functionality, enhance performance, and deliver an intuitive user experience.",
+    "Proj8": "Engaged in the creation of a sophisticated front-end project featuring intricate user interface designs. Leveraged advanced techniques to implement complex UI elements, ensuring seamless interaction and captivating visual appeal.",
+    "Proj9": "Contributed to the development of a sophisticated user interface for an institutional website, navigating through intricate design requirements and ensuring seamless user interaction. Implemented innovative solutions to optimize content presentation and enhance user engagement.",
+    "Proj10": "Collaborated on the development of a Next.js website, leveraging my expertise to enhance functionality, optimize performance, and ensure a seamless user experience.",
+    "Proj11": "Contributed to the development of a challenging UI for a gaming platform, navigating through intricate design requirements and pushing the boundaries of user interaction. Implemented innovative solutions to enhance gameplay experience and captivate players.",
+    "Proj12": "Played a key role in crafting the user interface for an institutional website, focusing on delivering an intuitive and visually appealing platform for visitors. Employed creative design strategies to convey complex information effectively and create a memorable user experience.",
+    "Proj13": "I've contributed to maintaining the Health System, developed a new software solution tailored for Dentistry, and crafted websites and applications to support the organization's objectives.",
+    "Proj14": "I was heavily involved in the development of the internal Sooft Technology App, which has since been rebranded and consolidated into Geopop. During this time, I served as the Technical Lead, overseeing various aspects of the project's implementation and ensuring its successful execution."
   },
   "Blog": {
     "Title": "My Blog",

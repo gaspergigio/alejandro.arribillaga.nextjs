@@ -39,7 +39,7 @@ export default async function Page() {
         <FindMe {...translations}>
           <FindMeCopy />
         </FindMe>
-        <Portfolio title={t('Home.Portfolio.Title')} isFeatured>
+        <Portfolio title={t('Home.Portfolio.Title')} isFeatured t={t}>
           <FadeUp y={100}>
             <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
               {t('Home.Portfolio.FirstParagraph')}
