@@ -107,9 +107,6 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
           <NavbarItem to="/portfolio" pathName={pathname}>
             Portfolio
           </NavbarItem>
-          <NavbarItem to="/blog" pathName={pathname}>
-            Blog
-          </NavbarItem>
           <NavbarItem to="/apps" pathName={pathname}>
             Apps
           </NavbarItem>

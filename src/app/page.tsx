@@ -14,12 +14,9 @@ import {
   Skills,
   Testimonials,
   Slogan,
-  Posts,
-  PostCard,
   FadeUp,
 } from '@/components'
 import { useTranslation } from '@/hooks'
-import { getServerPostList } from './actions'
 
 export const metadata: Metadata = {
   title: 'Alejandro Arribillaga | FrontEnd Engineer',
@@ -28,9 +25,8 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const blogList = await getServerPostList(3)
   const translations = useTranslation()
-  const { t, locale } = translations
+  const { t } = translations
 
   return (
     <main>
@@ -54,32 +50,32 @@ export default async function Page() {
         <Resume {...translations} />
         <Education {...translations} />
         <div className="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 hover:ring-primary/5 bg-white dark:bg-secondary  dark:hover:ring-white/20 overflow-hidden duration-300 shadow-xl dark:shadow-thick rounded-3xl p-8">
-          <Posts
-            title={t('Home.Posts.Title')}
-            isFeatured
-            description={
-              <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400 font-light">
-                {t('Home.Posts.Paragraph')}
-                <Link className="hover:text-opacity-80 focus:text-opacity-80 text-white font-semibold" href="/blog">
-                  {t('Home.Posts.GoTo')}
-                </Link>
-              </p>
-            }>
-            {blogList.data &&
-              blogList.data.map((post) => (
-                <PostCard
-                  key={post.id}
-                  isFeatured
-                  title={locale === 'es' ? post.title : post.en_title}
-                  slug={post.slug}
-                  imgSrc={post.thumb_path}
-                  publishDate={new Date(post.published_date)}>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                    {locale === 'es' ? post.preview : post.en_preview}
-                  </p>
-                </PostCard>
-              ))}
-          </Posts>
+          <FadeUp y={50}>
+            <p className="ext-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">
+              {t('Home.Apps.Title')}
+            </p>
+          </FadeUp>
+          <FadeUp y={100}>
+            <div className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
+              {t('Home.Apps.Paragraph1')}
+              <br /> <br />
+              {t('Home.Apps.Paragraph2')}
+              <br /> <br />
+              {t('Home.Apps.Paragraph3')}
+              <br /> <br />
+              {t('Home.Apps.Paragraph4')}
+              <br /> <br />
+              <ul>
+                <li className="list-disc ml-4">{t('Home.Apps.Item1')}</li>
+                <li className="list-disc ml-4">{t('Home.Apps.Item2')}</li>
+                <li className="list-disc ml-4">{t('Home.Apps.Item3')}</li>
+                <li className="list-disc ml-4">{t('Home.Apps.Item4')}</li>
+                <li className="list-disc ml-4">{t('Home.Apps.Item5')}</li>
+                <li className="list-disc ml-4">{t('Home.Apps.Item6')}</li>
+                <li className="list-disc ml-4">{t('Home.Apps.Item7')}</li>
+              </ul>
+            </div>
+          </FadeUp>
         </div>
 
         <Skills {...translations} />

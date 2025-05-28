@@ -32,11 +32,6 @@
       "FourthList2": "soy apasionado por el aprendizaje y crecimiento continuo",
       "FourthList3": ", valorando la adquisición de conocimiento sin importar su fuente. Ya sea a través de educación formal, cursos en línea o experiencia práctica, creo en la importancia de mantener la curiosidad y aprovechar nuevas oportunidades de aprendizaje."
     },
-    "Posts": {
-      "Title": "Últimos artículos",
-      "Paragraph": "Explora mis últimos artículos sobre programación, desarrollo web y tecnología. Encuentra aquí artículos técnicos de calidad, consejos, tutoriales y reflexiones para ayudarte a mantener tu mente aguda y tus habilidades actualizadas en el mundo del desarrollo de software. Lee más en mi",
-      "GoTo": " Blog"
-    },
     "Skills": {
       "Title": "Skills",
       "Paragraph": "A continuación se muestra una lista de algunas de las tecnologías con las que he trabajado o tengo experiencia previa:"
@@ -47,6 +42,20 @@
       "FirstTestimonial": "Alejandro es un excelente profesional, tanto técnica como en habilidades blandas. Tuve la oportunidad de trabajar con él durante un par de años donde pude darme cuenta de que además de tener grandes habilidades técnicas, siempre tiene una visión completa del producto o solución en la que está trabajando. Es un apasionado de la tecnología y esto lo mantiene en constante formación y dispuesto a ayudar a otros miembros del equipo o personas a cargo en cualquier momento.",
       "SecondTestimonial": "He tenido el privilegio de trabajar junto a Alejandro, y siempre me impresiona su dedicación a la excelencia. Trae una profunda pasión por el desarrollo frontend, particularmente en React, y consistentemente entrega trabajo de alta calidad. Alejandro busca proactivamente nuevos desafíos y oportunidades de aprendizaje, lo que beneficia enormemente el éxito de nuestro equipo. Su naturaleza colaborativa y fuertes habilidades de comunicación lo convierten en un valioso activo para cualquier proyecto. En resumen, Alejandro es un ingeniero frontend hábil con una actitud proactiva y un espíritu colaborativo. Ha sido un placer trabajar con él.",
       "ThirdTestimonial": "Alejandro es un excelente profesional, con conocimientos en muchas tecnologías y un buen criterio de calidad. Tuve la suerte de trabajar con él en varios proyectos y lograr grandes desafíos. Es una persona orientada a resultados, capaz de trabajar en equipo y liderarlo. Tiene una visión integral de los productos y proyectos que le permite entender las necesidades y requisitos del negocio, programarlos y entregar productos con gran profesionalismo."
+    },
+    "Apps": {
+      "Title": "Próximamente: Mis Apps",
+      "Paragraph1": "En este proyecto, que incluye mi propio sitio personal, desarrollé una arquitectura de microfrontends integrando diferentes tecnologías en un mismo ecosistema. Utilicé Next.js como aplicación shell principal, que gestiona la autenticación centralizada mediante Supabase y sirve como punto de entrada para múltiples microfrontends.",
+      "Paragraph2": "El primer microfrontend fue construido con React y conectado a un backend propio en Node.js con base de datos MongoDB. El segundo microfrontend, aún en desarrollo, está planeado en Angular, lo que demuestra la capacidad del sistema para integrar tecnologías heterogéneas.",
+      "Paragraph3": "Para la integración entre microfrontends implementé Module Federation (Webpack 5), permitiendo carga dinámica de módulos remotos y una experiencia fluida sin recargas. La autenticación se comparte de manera segura mediante tokens JWT gestionados con cookies HttpOnly, lo que asegura una sesión única (SSO) entre todas las aplicaciones.",
+      "Paragraph4": "Este proyecto es una muestra de mis conocimientos en:",
+      "Item1": "Arquitectura de Microfrontends",
+      "Item2": "Integración de Múltiples Tecnologías",
+      "Item3": "Autenticación Centralizada y manejo de tokens",
+      "Item4": "Carga Dinámica de Módulos con Module Federation",
+      "Item5": "Comunicación entre aplicaciones desacopladas",
+      "Item6": "Uso avanzado de Webpack y diferentes tecnologías en entornos reales",
+      "Item7": "Desarrollo de aplicaciones escalables y mantenibles"
     }
   },
   "Portfolio": {
@@ -67,13 +76,6 @@
     "Proj12": "Desempeñé un papel clave en la creación de la interfaz de usuario para un sitio web institucional, enfocándome en ofrecer una plataforma intuitiva y visualmente atractiva para los visitantes. Empleé estrategias de diseño creativo para transmitir información compleja de manera efectiva y crear una experiencia de usuario memorable.",
     "Proj13": "He contribuido a mantener el Sistema de Salud, desarrollado una nueva solución de software adaptada para la odontología, y creado sitios web y aplicaciones para apoyar los objetivos de la organización.",
     "Proj14": "Estuve muy involucrado en el desarrollo de la Aplicación Interna de Sooft Technology, que desde entonces ha sido rebrandeada y consolidada en Geopop. Durante este tiempo, me desempeñé como Líder Técnico, supervisando varios aspectos de la implementación del proyecto y asegurando su ejecución exitosa."
-  },
-  "Blog": {
-    "Title": "Mi Blog",
-    "Paragraph": "Explora mis últimos artículos sobre programación, desarrollo web y tecnología. Encuentra aquí artículos técnicos de calidad, consejos, tutoriales y reflexiones para ayudarte a mantener tu mente aguda y tus habilidades actualizadas en el mundo del desarrollo de software.",
-    "LoadMore": "Cargar más",
-    "NoPosts": "No hay publicaciones para mostrar",
-    "NoPostDescription": "No hay publicaciones para mostrar en este momento. Vuelve más tarde para ver más contenido."
   },
   "Apps": {
     "NoApps": "Próximamente",

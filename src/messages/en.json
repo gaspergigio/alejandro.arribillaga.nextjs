@@ -32,11 +32,6 @@
       "FourthList2": "I am passionate about continuous learning and growth",
       "FourthList3": ", valuing the acquisition of knowledge regardless of its source. Whether through formal education, online courses or hands-on experience, I believe in the importance of remaining curious and taking advantage of new"
     },
-    "Posts": {
-      "Title": "My latest Posts",
-      "Paragraph": "Explore my latest articles on programming, web development, and technology. Find quality technical articles, tips, tutorials, and reflections here to help you keep your mind sharp and your skills up to date in the world of software development. Read more in my",
-      "GoTo": " Blog"
-    },
     "Skills": {
       "Title": "Skills",
       "Paragraph": "Below is a list of some of the technologies I have worked with or have previous experience with:"
@@ -47,6 +42,20 @@
       "FirstTestimonial": "Alejandro is an excellent professional, both technically and in terms of soft skills. I had the opportunity to work with him for a couple of years where I could realize that in addition to having great technical skills, he always has a complete picture of the product or solution that he is working on. He is passionate about technology and this keeps him in constant training and willing to help other team members or people in charge at any time.",
       "SecondTestimonial": "I've had the privilege of working alongside Alejandro, and I am consistently impressed by his dedication to excellence. He brings a deep passion for front-end development, particularly in React, and consistently delivers high-quality work. Alejandro proactively seeks new challenges and learning opportunities, which greatly benefits our team's success. His collaborative nature and strong communication skills make him a valuable asset to any project. In summary, Alejandro is a skilled front-end engineer with a proactive attitude and a collaborative spirit. It's been a pleasure working with him.",
       "ThirdTestimonial": "Alejandro is an excellent professional, with knowledge in many technologies and a good quality criterion. I was fortunate to work with him on several projects and achieve great challenges. He is a results-oriented person, capable of working in a team and leading it. He has a comprehensive vision of the products and projects that allows him to understand the business needs and requirements, schedule them, and deliver products with great professionalism."
+    },
+    "Apps": {
+      "Title": "Coming Soon: My Apps",
+      "Paragraph1": "In this project, which includes my own personal site, I developed a microfrontends architecture integrating different technologies in the same ecosystem. I used Next.js as the main shell application, which manages the centralized authentication through Supabase and serves as an entry point for multiple microfrontends.",
+      "Paragraph2": "The first microfrontend was built with React and connected to a proprietary backend in Node.js with MongoDB database. The second microfrontend, still under development, is planned in Angular, demonstrating the system's ability to integrate heterogeneous technologies.",
+      "Paragraph3": "For the integration between microfrontends I implemented Module Federation (Webpack 5), allowing dynamic loading of remote modules and a seamless experience without reloads. Authentication is securely shared using JWT tokens managed with HttpOnly cookies, ensuring single sign-on (SSO) between all applications.",
+      "Paragraph4": "This project is a sample of my expertise in:",
+      "Item1": "Microfrontend architecture",
+      "Item2": "Integration between different frontend technologies",
+      "Item3": "Centralized authentication and token management",
+      "Item4": "Dynamic Module Loading with Module Federation",
+      "Item5": "Communication between decoupled applications",
+      "Item6": "Advanced use of Webpack and different technologies in real environments",
+      "Item7": "Development of scalable and maintainable applications"
     }
   },
   "Portfolio": {
@@ -67,13 +76,6 @@
     "Proj12": "Played a key role in crafting the user interface for an institutional website, focusing on delivering an intuitive and visually appealing platform for visitors. Employed creative design strategies to convey complex information effectively and create a memorable user experience.",
     "Proj13": "I've contributed to maintaining the Health System, developed a new software solution tailored for Dentistry, and crafted websites and applications to support the organization's objectives.",
     "Proj14": "I was heavily involved in the development of the internal Sooft Technology App, which has since been rebranded and consolidated into Geopop. During this time, I served as the Technical Lead, overseeing various aspects of the project's implementation and ensuring its successful execution."
-  },
-  "Blog": {
-    "Title": "My Blog",
-    "Paragraph": " Explore my latest articles on programming, web development, and technology. Find quality technical articles, tips, tutorials, and reflections here to help you keep your mind sharp and your skills up to date in the world of software development.",
-    "LoadMore": "Load More",
-    "NoPosts": "No posts to show",
-    "NoPostDescription": "There are no posts to show at the moment. Please check back later for more content."
   },
   "Apps": {
     "NoApps": "Comming Soon",
