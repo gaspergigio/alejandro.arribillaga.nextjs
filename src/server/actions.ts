@@ -2,12 +2,19 @@ import { createBrowserClient } from '@supabase/ssr'
 
 import IPost, { IPostList, PAGE_SIZE } from './types'
 
-async function signInOAuth() {
+async function signInWithEmail(email: string, password: string) {
   const supabase = getClient()
-  await supabase.auth.signInWithOAuth({
-    provider: 'github',
-    options: { redirectTo: 'http://localhost:3000/login/callback' },
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
   })
+
+  if (error) {
+    console.error('Login error:', error)
+    return { user: null, error }
+  }
+
+  return { user: data.user, error: null }
 }
 
 async function signOut() {
@@ -28,15 +35,15 @@ async function isUserAdmin() {
   if (!user) return false
 
   const { data } = await supabase
-    .from('Rol')
+    .from('User_Permissions')
     .select(
       `
-    role_id,
-    Entity!inner(name)
-  `
+      permission_id,
+      Permissions!inner(name)
+    `
     )
     .eq('user_id', user.id)
-    .eq('Entity.name', 'SuperAdmin')
+    .eq('Permissions.name', 'admin')
 
   if (!data?.length) return false
 
@@ -138,4 +145,14 @@ async function getPostList(supabase: any, pageNumber: number, pageSize?: number)
   return { data: data as IPost[], total: count }
 }
 
-export { signInOAuth, signOut, getUser, isUserAdmin, uploadFile, removeFile, savePost, getPostList, getClientPostList }
+export {
+  signInWithEmail,
+  signOut,
+  getUser,
+  isUserAdmin,
+  uploadFile,
+  removeFile,
+  savePost,
+  getPostList,
+  getClientPostList,
+}
