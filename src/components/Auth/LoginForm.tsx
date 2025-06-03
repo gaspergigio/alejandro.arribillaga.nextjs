@@ -31,9 +31,9 @@ export default function LoginForm({ onClose }: { onClose?: () => void }) {
   }
 
   return (
-    <Card className="max-w-md mx-auto">
+    <Card className="w-full bg-white dark:bg-secondary">
       <CardHeader className="justify-center">
-        <h2 className="text-xl font-semibold">Login</h2>
+        <h2 className="text-xl font-semibold text-zinc-500 dark:text-white">Login</h2>
       </CardHeader>
       <Divider />
       <CardBody>
@@ -49,7 +49,12 @@ export default function LoginForm({ onClose }: { onClose?: () => void }) {
               required
             />
           </div>
-          <Button type="submit" color="primary" className="w-full mt-4" isLoading={isLoading} disabled={isLoading}>
+          <Button
+            type="submit"
+            color="primary"
+            className="w-full mt-4 hover:bg-zinc-100 dark:hover:bg-primary ring-1 bg-zinc-50 dark:ring-white/10 ring-primary/5 dark:bg-tertiary rounded-lg hover:ring-primary/5 dark:hover:ring-white/20"
+            isLoading={isLoading}
+            disabled={isLoading}>
             Sign In
           </Button>
         </form>

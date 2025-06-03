@@ -175,9 +175,19 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
       </nav>
 
       {/* Login Modal */}
-      <Modal isOpen={isLoginOpen} onClose={onLoginClose} placement="center" backdrop="blur">
+      <Modal
+        isOpen={isLoginOpen}
+        onClose={onLoginClose}
+        placement="center"
+        backdrop="blur"
+        size="sm"
+        classNames={{
+          backdrop: 'bg-black bg-opacity-70',
+          base: 'bg-secondary rounded-lg shadow-lg dark:shadow-thick',
+          body: 'p-8 bg-black shadow-xl dark:shadow-thick border-0',
+        }}>
         <ModalContent>
-          <ModalBody className="p-6">
+          <ModalBody>
             <LoginForm onClose={onLoginClose} />
           </ModalBody>
         </ModalContent>

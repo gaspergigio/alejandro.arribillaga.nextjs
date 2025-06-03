@@ -86,7 +86,7 @@
     "Description": "Lo siento, la página que estás buscando no existe. El enlace puede estar roto o la página puede haber sido eliminada. Vuelve al inicio para seguir explorando mi sitio y conocer más sobre mi trabajo y proyectos como FrontEnd Engineer."
   },
   "Navbar": {
-    "SignIn": "Login con Github",
+    "SignIn": "Login",
     "SignOut": "Logout"
   }
 }
