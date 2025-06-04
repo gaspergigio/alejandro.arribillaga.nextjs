@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import Logo from '@/assets/logo.webp'
 import { FadeUp, useSessionContext } from '@/components'
 import LoginForm from '@/components/Auth/LoginForm'
+import ChangePasswordForm from '@/components/Auth/ChangePasswordForm'
 import useCookie from '@/hooks/useCookie'
 import { signOut, getUser } from '@/server'
 import { Kbd, Modal, ModalContent, ModalBody, useDisclosure } from '@nextui-org/react'
@@ -23,6 +24,7 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
   const [locale, setLocale] = useCookie('x-locale', 'en', true)
   const [isMounted, setIsMounted] = useState(false)
   const { isOpen: isLoginOpen, onOpen: onLoginOpen, onClose: onLoginClose } = useDisclosure()
+  const { isOpen: isChangePasswordOpen, onOpen: onChangePasswordOpen, onClose: onChangePasswordClose } = useDisclosure()
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -122,6 +124,7 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
                 disabled={authDisabled}
                 loginTxt={loginTxt}
                 logoutTxt={logoutTxt}
+                onChangePassword={onChangePasswordOpen}
               />
             </FadeUp>
           </div>
@@ -168,6 +171,7 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
                 disabled={authDisabled}
                 loginTxt={loginTxt}
                 logoutTxt={logoutTxt}
+                onChangePassword={onChangePasswordOpen}
               />
             </li>
           </ul>
@@ -189,6 +193,25 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
         <ModalContent>
           <ModalBody>
             <LoginForm onClose={onLoginClose} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+
+      {/* Change Password Modal */}
+      <Modal
+        isOpen={isChangePasswordOpen}
+        onClose={onChangePasswordClose}
+        placement="center"
+        backdrop="blur"
+        size="sm"
+        classNames={{
+          backdrop: 'bg-black bg-opacity-70',
+          base: 'bg-secondary rounded-lg shadow-lg dark:shadow-thick',
+          body: 'p-8 bg-black shadow-xl dark:shadow-thick border-0',
+        }}>
+        <ModalContent>
+          <ModalBody>
+            <ChangePasswordForm onClose={onChangePasswordClose} />
           </ModalBody>
         </ModalContent>
       </Modal>
