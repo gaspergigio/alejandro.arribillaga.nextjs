@@ -145,6 +145,27 @@ async function getPostList(supabase: any, pageNumber: number, pageSize?: number)
   return { data: data as IPost[], total: count }
 }
 
+async function updateUserPassword(newPassword: string) {
+  const supabase = getClient()
+  try {
+    // Supabase's updateUser with just the new password
+    const { error } = await supabase.auth.updateUser({
+      password: newPassword,
+    })
+
+    if (error) {
+      console.error('Password update error:', error)
+      return { error }
+    }
+
+    return { error: null }
+  } catch (error: unknown) {
+    const err = error as { message?: string }
+    console.error('Password update exception:', err)
+    return { error: { message: err.message || 'Unknown error occurred' } }
+  }
+}
+
 export {
   signInWithEmail,
   signOut,
@@ -155,4 +176,5 @@ export {
   savePost,
   getPostList,
   getClientPostList,
+  updateUserPassword,
 }
