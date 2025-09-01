@@ -114,6 +114,11 @@ export default function Navbar({ loginTxt, logoutTxt }: { loginTxt: string; logo
             <NavbarItem to="/apps" pathName={pathname}>
               Apps
             </NavbarItem>
+            {sessionUser && (
+              <NavbarItem to="/favorites" pathName={pathname}>
+                Favorites
+              </NavbarItem>
+            )}
           </ul>
           {/* Header Icons */}
           <div className="hidden md:flex space-x-5 items-center">
