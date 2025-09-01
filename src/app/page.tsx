@@ -33,7 +33,7 @@ export default async function Page() {
       <Home>
         <About {...translations} />
         <FindMe {...translations}>
-          <FindMeCopy />
+          <FindMeCopy text="alejandro.arribillaga@gmail.com" message="Email copied!" />
         </FindMe>
         <Portfolio title={t('Home.Portfolio.Title')} isFeatured t={t}>
           <FadeUp y={100}>

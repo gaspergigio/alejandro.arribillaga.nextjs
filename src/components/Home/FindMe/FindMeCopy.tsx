@@ -4,10 +4,11 @@ import React from 'react'
 import { IconCopy } from '@tabler/icons-react'
 
 import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
+import { FindMeCopyProps } from './FindMeCopy.types'
 
-export default function FindMeCopy() {
+export default function FindMeCopy({ text, message }: FindMeCopyProps) {
   const copyToClipboard = () => {
-    navigator.clipboard.writeText('alejandro.arribillaga@gmail.com')
+    navigator.clipboard.writeText(text)
   }
 
   return (
@@ -21,7 +22,7 @@ export default function FindMeCopy() {
       </PopoverTrigger>
       <PopoverContent>
         <div className="px-1 py-2">
-          <div className="text-tiny">Email copied</div>
+          <div className="text-tiny">{message}</div>
         </div>
       </PopoverContent>
     </Popover>
